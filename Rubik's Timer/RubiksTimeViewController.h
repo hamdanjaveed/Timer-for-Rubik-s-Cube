@@ -1,5 +1,5 @@
 //
-//  RubiksFirstViewController.h
+//  RubiksTimeViewController.h
 //  Rubik's Timer
 //
 //  Created by Hamdan Javeed on 12/15/2013.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RubiksFirstViewController : UIViewController
+@interface RubiksTimeViewController : UIViewController
 
 @end

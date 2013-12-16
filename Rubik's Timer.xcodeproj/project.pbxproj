@@ -14,14 +14,13 @@
 		EAD65FD4185E740800B1A9D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FD3185E740800B1A9D3 /* main.m */; };
 		EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FD7185E740800B1A9D3 /* RubiksAppDelegate.m */; };
 		EAD65FDB185E740800B1A9D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FD9185E740800B1A9D3 /* Main.storyboard */; };
-		EAD65FDE185E740800B1A9D3 /* RubiksFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FDD185E740800B1A9D3 /* RubiksFirstViewController.m */; };
-		EAD65FE1185E740800B1A9D3 /* RubiksSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FE0185E740800B1A9D3 /* RubiksSecondViewController.m */; };
 		EAD65FE3185E740800B1A9D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FE2185E740800B1A9D3 /* Images.xcassets */; };
 		EAD65FEA185E740800B1A9D3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FE9185E740800B1A9D3 /* XCTest.framework */; };
 		EAD65FEB185E740800B1A9D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC7185E740800B1A9D3 /* Foundation.framework */; };
 		EAD65FEC185E740800B1A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FCB185E740800B1A9D3 /* UIKit.framework */; };
 		EAD65FF4185E740800B1A9D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FF2185E740800B1A9D3 /* InfoPlist.strings */; };
 		EAD65FF6185E740800B1A9D3 /* Rubik_s_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */; };
+		EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +45,14 @@
 		EAD65FD6185E740800B1A9D3 /* RubiksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RubiksAppDelegate.h; sourceTree = "<group>"; };
 		EAD65FD7185E740800B1A9D3 /* RubiksAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RubiksAppDelegate.m; sourceTree = "<group>"; };
 		EAD65FDA185E740800B1A9D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EAD65FDC185E740800B1A9D3 /* RubiksFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RubiksFirstViewController.h; sourceTree = "<group>"; };
-		EAD65FDD185E740800B1A9D3 /* RubiksFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RubiksFirstViewController.m; sourceTree = "<group>"; };
-		EAD65FDF185E740800B1A9D3 /* RubiksSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RubiksSecondViewController.h; sourceTree = "<group>"; };
-		EAD65FE0185E740800B1A9D3 /* RubiksSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RubiksSecondViewController.m; sourceTree = "<group>"; };
 		EAD65FE2185E740800B1A9D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EAD65FE8185E740800B1A9D3 /* Rubik's TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rubik's TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD65FE9185E740800B1A9D3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EAD65FF1185E740800B1A9D3 /* Rubik's TimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rubik's TimerTests-Info.plist"; sourceTree = "<group>"; };
 		EAD65FF3185E740800B1A9D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rubik_s_TimerTests.m; sourceTree = "<group>"; };
+		EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksTimeViewController.h; sourceTree = "<group>"; };
+		EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksTimeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +115,8 @@
 				EAD65FD6185E740800B1A9D3 /* RubiksAppDelegate.h */,
 				EAD65FD7185E740800B1A9D3 /* RubiksAppDelegate.m */,
 				EAD65FD9185E740800B1A9D3 /* Main.storyboard */,
-				EAD65FDC185E740800B1A9D3 /* RubiksFirstViewController.h */,
-				EAD65FDD185E740800B1A9D3 /* RubiksFirstViewController.m */,
-				EAD65FDF185E740800B1A9D3 /* RubiksSecondViewController.h */,
-				EAD65FE0185E740800B1A9D3 /* RubiksSecondViewController.m */,
+				EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */,
+				EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -255,10 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD65FDE185E740800B1A9D3 /* RubiksFirstViewController.m in Sources */,
 				EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */,
-				EAD65FE1185E740800B1A9D3 /* RubiksSecondViewController.m in Sources */,
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
+				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
