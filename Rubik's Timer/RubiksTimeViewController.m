@@ -9,30 +9,69 @@
 #import "RubiksTimeViewController.h"
 
 @interface RubiksTimeViewController ()
-
+@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) BOOL timerIsRunning;
+@property (nonatomic) NSTimeInterval currentTime;
+@property (strong, nonatomic) NSDate *fireDate;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (nonatomic) BOOL currentTouchDidStopTimer;
 @end
 
 @implementation RubiksTimeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.fireDate = [NSDate date];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (self.timerIsRunning) {
+        self.timerIsRunning = NO;
+        [self.timer invalidate];
+        self.currentTouchDidStopTimer = YES;
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.timerIsRunning && !self.currentTouchDidStopTimer) {
+        self.timerIsRunning = YES;
+        self.currentTime = 0;
+        self.fireDate = [NSDate date];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+        [self.timer fire];
+    }
+    self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
+}
+
+- (void)update:(NSTimer *)timer {
+    self.currentTime = [[NSDate date] timeIntervalSinceDate:self.fireDate];
+    self.timerLabel.text = [self getFormattedLabel];
+}
+
+- (NSString *)getFormattedLabel {
+    NSString *formattedLabel;
+    
+    // get subseconds
+    NSString *subsecond = [NSString stringWithFormat:@"%f", fmod(self.currentTime, 1.0)];
+    if ([subsecond length] > 4) {
+        NSRange range = {2, 2};
+        subsecond = [subsecond substringWithRange:range];
+    }
+    
+    // get seconds
+    NSString *seconds = [NSString stringWithFormat:@"%.0f", floor(self.currentTime)];
+    
+    // format the string
+    if (self.currentTime < 60) {
+        formattedLabel = [NSString stringWithFormat:@"%@:%@", seconds, subsecond];
+    } else {
+        formattedLabel = [NSString stringWithFormat:@"%02li:%02li:%02li",
+                          lround(floor(self.currentTime / 3600.)) % 100,
+                          lround(floor(self.currentTime / 60.)) % 60,
+                          lround(floor(self.currentTime)) % 60];
+    }
+    
+    return formattedLabel;
 }
 
 @end
