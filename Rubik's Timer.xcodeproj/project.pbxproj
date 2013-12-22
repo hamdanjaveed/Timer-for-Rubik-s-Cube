@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */; };
 		EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC7185E740800B1A9D3 /* Foundation.framework */; };
 		EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */; };
 		EAD65FCC185E740800B1A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FCB185E740800B1A9D3 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA9608E418669B130082B283 /* RubiksViewTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksViewTimeViewController.h; sourceTree = "<group>"; };
+		EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksViewTimeViewController.m; sourceTree = "<group>"; };
 		EAD65FC4185E740800B1A9D3 /* Rubik's Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD65FC7185E740800B1A9D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 				EAD65FD9185E740800B1A9D3 /* Main.storyboard */,
 				EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */,
 				EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */,
+				EA9608E418669B130082B283 /* RubiksViewTimeViewController.h */,
+				EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -252,6 +257,7 @@
 			files = (
 				EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */,
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
+				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

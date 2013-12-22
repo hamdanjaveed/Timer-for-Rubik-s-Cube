@@ -38,7 +38,6 @@
         }
         [timesInMemory addObject:time];
         [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
-        
     }
 }
 
