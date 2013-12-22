@@ -112,8 +112,6 @@
 		EAD65FCD185E740800B1A9D3 /* Rubik's Timer */ = {
 			isa = PBXGroup;
 			children = (
-				EAD65FD6185E740800B1A9D3 /* RubiksAppDelegate.h */,
-				EAD65FD7185E740800B1A9D3 /* RubiksAppDelegate.m */,
 				EAD65FD9185E740800B1A9D3 /* Main.storyboard */,
 				EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */,
 				EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */,
@@ -126,6 +124,8 @@
 		EAD65FCE185E740800B1A9D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAD65FD6185E740800B1A9D3 /* RubiksAppDelegate.h */,
+				EAD65FD7185E740800B1A9D3 /* RubiksAppDelegate.m */,
 				EAD65FCF185E740800B1A9D3 /* Rubik's Timer-Info.plist */,
 				EAD65FD0185E740800B1A9D3 /* InfoPlist.strings */,
 				EAD65FD3185E740800B1A9D3 /* main.m */,
@@ -461,6 +461,7 @@
 				EAD65FFB185E740800B1A9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAD65FFC185E740800B1A9D3 /* Build configuration list for PBXNativeTarget "Rubik's TimerTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				EAD65FFE185E740800B1A9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

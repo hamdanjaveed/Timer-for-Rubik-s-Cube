@@ -24,11 +24,21 @@
     self.fireDate = [NSDate date];
 }
 
+#define TIME_ARRAY_KEY @"times"
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
         [self.timer invalidate];
         self.currentTouchDidStopTimer = YES;
+        
+        NSNumber *time = [NSNumber numberWithFloat:self.currentTime];
+        NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
+        if (!timesInMemory) {
+            timesInMemory = [[NSMutableArray alloc] init];
+        }
+        [timesInMemory addObject:time];
+        [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+        
     }
 }
 
