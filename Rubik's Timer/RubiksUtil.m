@@ -18,7 +18,7 @@
         int nextMove;
         do {
             nextMove = arc4random() % [possibleMoves count];
-        } while (abs(nextMove - [scrambleArray[i - 1] intValue]) < 3);
+        } while (nextMove / 3 == [scrambleArray[i - 1] intValue] / 3);
         
         scrambleArray[i] = [NSNumber numberWithInt:nextMove];
     }
