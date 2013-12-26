@@ -54,11 +54,20 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        NSMutableArray *times = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"times"]];
-        [times removeObjectAtIndex:indexPath.row];
-        [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:@"times"];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        /*
+         * BUG: tap delete on last item fast, will crash on 2nd line
+         * RESOLVE: (if)->check for indexpath
+         */
+        
+        if (indexPath) {
+            // Delete the row from the data source
+            NSMutableArray *times = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"times"]];
+            [times removeObjectAtIndex:indexPath.row];
+            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:@"times"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
     }
 }
 
