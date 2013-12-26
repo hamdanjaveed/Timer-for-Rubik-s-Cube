@@ -31,4 +31,10 @@
     return [scrambleArrayMoves componentsJoinedByString:@"  "];
 }
 
++ (NSString *)formatTime:(double)seconds {
+    int minutes = seconds / 60;
+    seconds -= minutes * 60;
+    return [NSString stringWithFormat:@"%@%@", minutes ? [NSString stringWithFormat:@"%d:", minutes] : @"", (seconds < 10 && minutes) ? [NSString stringWithFormat:@"0%.2f", seconds] : [NSString stringWithFormat:@"%.2f", seconds]];
+}
+
 @end

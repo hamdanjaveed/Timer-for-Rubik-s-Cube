@@ -35,7 +35,7 @@
         [self.timer invalidate];
         self.currentTouchDidStopTimer = YES;
         
-        NSNumber *time = [NSNumber numberWithFloat:self.currentTime];
+        NSNumber *time = [NSNumber numberWithDouble:self.currentTime];
         NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
         if (!timesInMemory) {
             timesInMemory = [[NSMutableArray alloc] init];
@@ -60,7 +60,7 @@
 
 - (void)update:(NSTimer *)timer {
     self.currentTime = [[NSDate date] timeIntervalSinceDate:self.fireDate];
-    self.timerLabel.text = [self getFormattedLabel];
+    self.timerLabel.text = [RubiksUtil formatTime:self.currentTime];
 }
 
 - (NSString *)getFormattedLabel {

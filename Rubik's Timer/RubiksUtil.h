@@ -11,5 +11,6 @@
 @interface RubiksUtil : NSObject
 
 + (NSString *)generateScramble;
++ (NSString *)formatTime:(double)seconds;
 
 @end
