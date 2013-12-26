@@ -1,5 +1,5 @@
 //
-//  ScrambleGenerator.h
+//  RubiksUtil.h
 //  Rubik's Timer
 //
 //  Created by Hamdan Javeed on 12/25/2013.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ScrambleGenerator : NSObject
+@interface RubiksUtil : NSObject
 
 + (NSString *)generateScramble;
 

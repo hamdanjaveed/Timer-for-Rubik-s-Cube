@@ -1,14 +1,14 @@
 //
-//  ScrambleGenerator.m
+//  RubiksUtil.m
 //  Rubik's Timer
 //
 //  Created by Hamdan Javeed on 12/25/2013.
 //  Copyright (c) 2013 Hamdan Javeed. All rights reserved.
 //
 
-#import "ScrambleGenerator.h"
+#import "RubiksUtil.h"
 
-@implementation ScrambleGenerator
+@implementation RubiksUtil
 
 + (NSString *)generateScramble {
     NSArray *possibleMoves = @[@"F", @"R", @"U", @"L", @"B", @"D", @"F'", @"R'", @"U'", @"L'", @"B'", @"D'", @"F2", @"R2", @"U2", @"L2", @"B2", @"D2"];

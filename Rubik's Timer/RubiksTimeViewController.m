@@ -7,7 +7,7 @@
 //
 
 #import "RubiksTimeViewController.h"
-#import "ScrambleGenerator.h"
+#import "RubiksUtil.h"
 
 
 @interface RubiksTimeViewController ()
@@ -90,7 +90,7 @@
 }
 
 - (void)generateScramble {
-    self.scrambleLabel.text = [ScrambleGenerator generateScramble];
+    self.scrambleLabel.text = [RubiksUtil generateScramble];
 }
 
 @end
