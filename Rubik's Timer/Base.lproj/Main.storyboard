@@ -23,6 +23,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scramble" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="zmr-Fo-GiT">
+                                <rect key="frame" x="20" y="263" width="280" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.55686277149999996" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -34,6 +41,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="first" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="scrambleLabel" destination="zmr-Fo-GiT" id="BLH-IE-UaP"/>
                         <outlet property="timerLabel" destination="1mM-gM-Q5Y" id="Of2-tP-T6k"/>
                     </connections>
                 </viewController>
@@ -93,7 +101,7 @@
         <scene sceneID="jat-IW-oDT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOv-gm-JzW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="View Times" id="3j4-fj-UFr"/>
+                    <tabBarItem key="tabBarItem" title="View Times" image="second" id="3j4-fj-UFr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tge-ay-oxz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -111,6 +119,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
