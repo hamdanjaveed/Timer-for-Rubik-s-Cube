@@ -63,32 +63,6 @@
     self.timerLabel.text = [RubiksUtil formatTime:self.currentTime];
 }
 
-- (NSString *)getFormattedLabel {
-    NSString *formattedLabel;
-    
-    // get subseconds
-    NSString *subsecond = [NSString stringWithFormat:@"%f", fmod(self.currentTime, 1.0)];
-    if ([subsecond length] > 4) {
-        NSRange range = {2, 2};
-        subsecond = [subsecond substringWithRange:range];
-    }
-    
-    // get seconds
-    NSString *seconds = [NSString stringWithFormat:@"%.0f", floor(self.currentTime)];
-    
-    // format the string
-    if (self.currentTime < 60) {
-        formattedLabel = [NSString stringWithFormat:@"%@:%@", seconds, subsecond];
-    } else {
-        formattedLabel = [NSString stringWithFormat:@"%02li:%02li:%02li",
-                          lround(floor(self.currentTime / 3600.)) % 100,
-                          lround(floor(self.currentTime / 60.)) % 60,
-                          lround(floor(self.currentTime)) % 60];
-    }
-    
-    return formattedLabel;
-}
-
 - (void)generateScramble {
     self.scrambleLabel.text = [RubiksUtil generateScramble];
 }
