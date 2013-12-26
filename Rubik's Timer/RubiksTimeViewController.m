@@ -40,7 +40,7 @@
         if (!timesInMemory) {
             timesInMemory = [[NSMutableArray alloc] init];
         }
-        [timesInMemory addObject:time];
+        [timesInMemory insertObject:time atIndex:0];
         [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
         
         [self generateScramble];
