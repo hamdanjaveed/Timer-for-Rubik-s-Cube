@@ -7,6 +7,8 @@
 //
 
 #import "RubiksTimeViewController.h"
+#import "ScrambleGenerator.h"
+
 
 @interface RubiksTimeViewController ()
 @property (strong, nonatomic) NSTimer *timer;
@@ -15,6 +17,7 @@
 @property (strong, nonatomic) NSDate *fireDate;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic) BOOL currentTouchDidStopTimer;
+@property (weak, nonatomic) IBOutlet UILabel *scrambleLabel;
 @end
 
 @implementation RubiksTimeViewController
@@ -22,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fireDate = [NSDate date];
+    [self generateScramble];
 }
 
 #define TIME_ARRAY_KEY @"times"
@@ -38,6 +42,8 @@
         }
         [timesInMemory addObject:time];
         [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+        
+        [self generateScramble];
     }
 }
 
@@ -81,6 +87,10 @@
     }
     
     return formattedLabel;
+}
+
+- (void)generateScramble {
+    self.scrambleLabel.text = [ScrambleGenerator generateScramble];
 }
 
 @end

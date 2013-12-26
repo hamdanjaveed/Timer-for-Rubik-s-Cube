@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA7EC7EB186BD3D200872953 /* ScrambleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7EA186BD3D200872953 /* ScrambleGenerator.m */; };
 		EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */; };
 		EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC7185E740800B1A9D3 /* Foundation.framework */; };
 		EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA7EC7E9186BD3D200872953 /* ScrambleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrambleGenerator.h; sourceTree = "<group>"; };
+		EA7EC7EA186BD3D200872953 /* ScrambleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrambleGenerator.m; sourceTree = "<group>"; };
 		EA9608E418669B130082B283 /* RubiksViewTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksViewTimeViewController.h; sourceTree = "<group>"; };
 		EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksViewTimeViewController.m; sourceTree = "<group>"; };
 		EAD65FC4185E740800B1A9D3 /* Rubik's Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +123,8 @@
 				EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */,
 				EA9608E418669B130082B283 /* RubiksViewTimeViewController.h */,
 				EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */,
+				EA7EC7E9186BD3D200872953 /* ScrambleGenerator.h */,
+				EA7EC7EA186BD3D200872953 /* ScrambleGenerator.m */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -259,6 +264,7 @@
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
 				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
+				EA7EC7EB186BD3D200872953 /* ScrambleGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
