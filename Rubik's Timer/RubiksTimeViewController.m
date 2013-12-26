@@ -52,6 +52,7 @@
         } else {
             self.timerIsRunning = NO;
             [self.inspectionTimer invalidate];
+            self.timerLabel.text = @"Tap to start";
         }
     }
 }
