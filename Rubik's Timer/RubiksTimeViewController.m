@@ -8,6 +8,7 @@
 
 #import "RubiksTimeViewController.h"
 #import "RubiksUtil.h"
+#import "Time.h"
 
 
 @interface RubiksTimeViewController ()
@@ -40,13 +41,14 @@
         self.currentTouchDidStopTimer = YES;
         
         if (self.inspectionDidFinish) {
-            NSNumber *time = [NSNumber numberWithDouble:self.currentTime];
+            Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
             NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
             if (!timesInMemory) {
                 timesInMemory = [[NSMutableArray alloc] init];
             }
-            [timesInMemory insertObject:time atIndex:0];
+            [timesInMemory insertObject:[Time convertToArray:time] atIndex:0];
             [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self generateScramble];
         } else {

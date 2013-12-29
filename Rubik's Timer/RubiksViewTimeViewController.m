@@ -8,6 +8,7 @@
 
 #import "RubiksViewTimeViewController.h"
 #import "RubiksUtil.h"
+#import "Time.h"
 
 @interface RubiksViewTimeViewController ()
 
@@ -40,7 +41,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSArray *times = [[NSUserDefaults standardUserDefaults] arrayForKey:@"times"];
-    [[cell textLabel] setText:[RubiksUtil formatTime:[[times objectAtIndex:indexPath.row] doubleValue]]];
+    [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[times objectAtIndex:indexPath.row]]]];
     
     return cell;
 }

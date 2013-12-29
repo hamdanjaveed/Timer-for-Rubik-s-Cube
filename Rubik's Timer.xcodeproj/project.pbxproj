@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA4716B3186FEA7200BE12C0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4716B2186FEA7200BE12C0 /* Time.m */; };
 		EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */; };
 		EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7F0186BDD9800872953 /* RubiksUtil.m */; };
 		EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA4716B1186FEA7200BE12C0 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		EA4716B2186FEA7200BE12C0 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
 		EA7EC7EC186BDB1400872953 /* RubiksStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksStatisticsViewController.h; sourceTree = "<group>"; };
 		EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksStatisticsViewController.m; sourceTree = "<group>"; };
 		EA7EC7EF186BDD9800872953 /* RubiksUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksUtil.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */,
 				EA7EC7EF186BDD9800872953 /* RubiksUtil.h */,
 				EA7EC7F0186BDD9800872953 /* RubiksUtil.m */,
+				EA4716B1186FEA7200BE12C0 /* Time.h */,
+				EA4716B2186FEA7200BE12C0 /* Time.m */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -268,6 +273,7 @@
 				EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */,
 				EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */,
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
+				EA4716B3186FEA7200BE12C0 /* Time.m in Sources */,
 				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
 				EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */,
