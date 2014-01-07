@@ -63,9 +63,9 @@
 }
 
 - (void)updateAverageOf5 {
-    int numberOfSolves = [self.times count];
+    NSUInteger numberOfSolves = [self.times count];
     if (numberOfSolves < 5) {
-        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: Need %d more solve%@", 5 - numberOfSolves, (5 - numberOfSolves == 1) ? @"" : @"s"];
+        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: Need %u more solve%@", 5 - numberOfSolves, (5 - numberOfSolves == 1) ? @"" : @"s"];
     } else {
         double sum = [Time getTimeFromArray:[self.times firstObject]];
         for (int i = 1; i < 5; i++) {
@@ -76,9 +76,9 @@
 }
 
 - (void)updateAverageOf10 {
-    int numberOfSolves = [self.times count];
+    NSUInteger numberOfSolves = [self.times count];
     if (numberOfSolves < 10) {
-        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: Need %d more solve%@", 10 - numberOfSolves, (10 - numberOfSolves == 1) ? @"" : @"s"];
+        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: Need %u more solve%@", 10 - numberOfSolves, (10 - numberOfSolves == 1) ? @"" : @"s"];
     } else {
         double sum = [Time getTimeFromArray:[self.times firstObject]];
         for (int i = 1; i < 10; i++) {
