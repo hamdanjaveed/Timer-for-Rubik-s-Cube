@@ -60,7 +60,7 @@
 }
 
 - (void)updateNumberOfSolves {
-    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", [[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count]];
+    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %u",[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count]];
 }
 
 - (void)updateBest {

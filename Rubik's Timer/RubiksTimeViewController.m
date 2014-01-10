@@ -51,6 +51,8 @@
 
 #define TIME_ARRAY_KEY @"times"
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
         self.currentTouchDidStopTimer = YES;
@@ -74,25 +76,35 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (!self.timerIsRunning && !self.currentTouchDidStopTimer) {
-        self.timerIsRunning = YES;
-        self.currentTime = 0;
-        self.fireDate = [NSDate date];
-        self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
-        [self.inspectionTimer fire];
-        self.inspectionDidFinish = NO;
-        self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
-        
-        [self toggleBlur];
-    } else if (!self.inspectionDidFinish) {
+    if (!self.startingInspectionTime && !self.currentTouchDidStopTimer) {
         self.timerIsRunning = YES;
         self.currentTime = 0;
         self.fireDate = [NSDate date];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
         [self.timer fire];
-        
-        [self.inspectionTimer invalidate];
         self.inspectionDidFinish = YES;
+        
+        [self toggleBlur];
+    } else {
+        if (!self.timerIsRunning && !self.currentTouchDidStopTimer) {
+            self.timerIsRunning = YES;
+            self.currentTime = 0;
+            self.fireDate = [NSDate date];
+            self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
+            [self.inspectionTimer fire];
+            self.inspectionDidFinish = NO;
+        
+            [self toggleBlur];
+        } else if (!self.inspectionDidFinish) {
+            self.timerIsRunning = YES;
+            self.currentTime = 0;
+            self.fireDate = [NSDate date];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+            [self.timer fire];
+        
+            [self.inspectionTimer invalidate];
+            self.inspectionDidFinish = YES;
+        }
     }
     self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
 }
