@@ -325,7 +325,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
                                 <state key="normal" title="Delete all times">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.91764712329999998" green="0.03529411927" blue="0.0039215688589999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="delete" destination="jXt-qa-vq9" eventType="touchUpInside" id="eCc-OS-aVI"/>
