@@ -10,6 +10,7 @@
 #import "RubiksViewTimeViewController.h"
 #import "RubiksUtil.h"
 #import "Time.h"
+#import "RubiksIndividualTimeViewController.h"
 
 @interface RubiksViewTimeViewController () <MFMailComposeViewControllerDelegate>
 
@@ -72,17 +73,20 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // the destination vc
+    RubiksIndividualTimeViewController *destinationVC = [segue destinationViewController];
+    
+    // the time selected
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Time *time = [Time getFromArray:[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] objectAtIndex:indexPath.row]];
+    
+    destinationVC.time = time.time;
+    destinationVC.date = time.date;
+    destinationVC.scramble = time.scramble;
+}
 
 - (IBAction)email:(id)sender {
     MFMailComposeViewController *emailVC = [[MFMailComposeViewController alloc] init];

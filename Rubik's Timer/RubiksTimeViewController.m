@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) NSTimer *inspectionTimer;
 @property (nonatomic) BOOL inspectionDidFinish;
+@property (nonatomic) int startingInspectionTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *scrambleLabel;
 
@@ -37,6 +38,15 @@
     
     [self.blurView setOpaque:NO];
     [self.blurView setUserInteractionEnabled:NO];
+    
+    NSDictionary *settings = [[NSUserDefaults standardUserDefaults] objectForKey:@"settings"];
+    if (!settings) {
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", nil];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"settings"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
 }
 
 #define TIME_ARRAY_KEY @"times"
@@ -71,6 +81,7 @@
         self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
         [self.inspectionTimer fire];
         self.inspectionDidFinish = NO;
+        self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
         
         [self toggleBlur];
     } else if (!self.inspectionDidFinish) {
@@ -105,9 +116,8 @@
     self.timerLabel.text = [RubiksUtil formatTime:self.currentTime];
 }
 
-#define INSPECTION_TIME 15
 - (void)updateInspectionTimer:(NSTimer *)timer {
-    if ([[NSDate date] timeIntervalSinceDate:self.fireDate] > INSPECTION_TIME) {
+    if ([[NSDate date] timeIntervalSinceDate:self.fireDate] > self.startingInspectionTime) {
         self.timerIsRunning = YES;
         self.currentTime = 0;
         self.fireDate = [NSDate date];
@@ -117,7 +127,7 @@
         [self.inspectionTimer invalidate];
         self.inspectionDidFinish = YES;
     } else {
-        int seconds = INSPECTION_TIME - [[NSDate date] timeIntervalSinceDate:self.fireDate] + 1;
+        int seconds = self.startingInspectionTime - [[NSDate date] timeIntervalSinceDate:self.fireDate] + 1;
         self.timerLabel.text = [NSString stringWithFormat:@"%d", seconds];
     }
 }
