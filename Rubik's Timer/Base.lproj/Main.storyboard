@@ -287,7 +287,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="sR9-vd-xGD">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="sR9-vd-xGD">
                                 <rect key="frame" x="18" y="166" width="284" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.99009203909999999" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,22 +297,56 @@
                                     <action selector="inspectionTimeUpdated:" destination="jXt-qa-vq9" eventType="valueChanged" id="c1a-rG-Xzs"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6va-yI-BTI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6va-yI-BTI">
                                 <rect key="frame" x="20" y="35" width="280" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="ibC-dX-Ix3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inspection Time: 15 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QnM-Th-xgJ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspection Time: 15 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QnM-Th-xgJ">
                                 <rect key="frame" x="20" y="119" width="280" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="MK1-IK-DCl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.24190848209999999" green="0.23660983820000001" blue="0.22816368200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="527-7e-ODF">
+                                <rect key="frame" x="20" y="319" width="280" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="KlN-KP-edt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <state key="normal" title="Delete all times">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="delete" destination="jXt-qa-vq9" eventType="touchUpInside" id="eCc-OS-aVI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.55686277149999996" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="QnM-Th-xgJ" firstAttribute="leading" secondItem="sR9-vd-xGD" secondAttribute="leading" id="5WS-5A-GJ3"/>
+                            <constraint firstItem="6va-yI-BTI" firstAttribute="top" secondItem="ay3-Ia-Ozc" secondAttribute="bottom" constant="15" id="7pI-0M-fVJ"/>
+                            <constraint firstAttribute="trailing" secondItem="6va-yI-BTI" secondAttribute="trailing" constant="20" symbolic="YES" id="CaY-Tl-inp"/>
+                            <constraint firstItem="6va-yI-BTI" firstAttribute="leading" secondItem="sGI-xp-eRb" secondAttribute="leading" constant="20" symbolic="YES" id="FfJ-Kh-1pm"/>
+                            <constraint firstItem="sR9-vd-xGD" firstAttribute="trailing" secondItem="QnM-Th-xgJ" secondAttribute="trailing" id="H1o-mu-rRd"/>
+                            <constraint firstAttribute="bottom" secondItem="527-7e-ODF" secondAttribute="bottom" constant="74" id="LRQ-6E-t5z"/>
+                            <constraint firstItem="QnM-Th-xgJ" firstAttribute="leading" secondItem="6va-yI-BTI" secondAttribute="leading" id="PFo-Lh-Don"/>
+                            <constraint firstItem="QnM-Th-xgJ" firstAttribute="top" secondItem="6va-yI-BTI" secondAttribute="bottom" constant="8" symbolic="YES" id="QYB-hq-sjF"/>
+                            <constraint firstItem="sR9-vd-xGD" firstAttribute="trailing" secondItem="527-7e-ODF" secondAttribute="trailing" id="ahC-xL-d7y"/>
+                            <constraint firstItem="6va-yI-BTI" firstAttribute="trailing" secondItem="QnM-Th-xgJ" secondAttribute="trailing" id="iRd-ot-G7V"/>
+                            <constraint firstItem="527-7e-ODF" firstAttribute="leading" secondItem="sR9-vd-xGD" secondAttribute="leading" id="nlD-CB-ODD"/>
+                            <constraint firstItem="sR9-vd-xGD" firstAttribute="top" secondItem="QnM-Th-xgJ" secondAttribute="bottom" constant="8" symbolic="YES" id="uYw-mn-oSt"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="iRQ-Qo-T4J"/>
                     <connections>

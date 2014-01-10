@@ -44,6 +44,7 @@
         [self updateAverageOf10];
     } else {
         self.bestLabel.text = @"Best: No recorded solves";
+        self.numberOfSolvesLabel.text = @"Number of solves: 0";
         self.worstLabel.text = @"Worst: No recorded solves";
         self.averageLabel.text = @"Average: No recorded solves";
         self.average5Label.text = @"Average of 5: Need 5 more solves";
@@ -60,7 +61,8 @@
 }
 
 - (void)updateNumberOfSolves {
-    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %u",[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count]];
+    int count = [[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
+    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", count];
 }
 
 - (void)updateBest {
