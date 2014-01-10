@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A5BA4187D2CB600C17269 /* MessageUI.framework */; };
 		EA4716B3186FEA7200BE12C0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4716B2186FEA7200BE12C0 /* Time.m */; };
 		EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */; };
 		EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7F0186BDD9800872953 /* RubiksUtil.m */; };
@@ -25,6 +26,8 @@
 		EAD65FF4185E740800B1A9D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FF2185E740800B1A9D3 /* InfoPlist.strings */; };
 		EAD65FF6185E740800B1A9D3 /* Rubik_s_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */; };
 		EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */; };
+		EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = EADA7230187D0E1600B5971A /* Beep 1.mov */; };
+		EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EADA7231187D0E1600B5971A /* Beep 2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA0A5BA4187D2CB600C17269 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EA4716B1186FEA7200BE12C0 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		EA4716B2186FEA7200BE12C0 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
 		EA7EC7EC186BDB1400872953 /* RubiksStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksStatisticsViewController.h; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rubik_s_TimerTests.m; sourceTree = "<group>"; };
 		EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksTimeViewController.h; sourceTree = "<group>"; };
 		EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksTimeViewController.m; sourceTree = "<group>"; };
+		EADA7230187D0E1600B5971A /* Beep 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Beep 1.mov"; sourceTree = "<group>"; };
+		EADA7231187D0E1600B5971A /* Beep 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Beep 2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */,
 				EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */,
 				EAD65FCC185E740800B1A9D3 /* UIKit.framework in Frameworks */,
 				EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */,
@@ -113,6 +120,7 @@
 		EAD65FC6185E740800B1A9D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA0A5BA4187D2CB600C17269 /* MessageUI.framework */,
 				EAD65FC7185E740800B1A9D3 /* Foundation.framework */,
 				EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */,
 				EAD65FCB185E740800B1A9D3 /* UIKit.framework */,
@@ -135,6 +143,8 @@
 				EA7EC7F0186BDD9800872953 /* RubiksUtil.m */,
 				EA4716B1186FEA7200BE12C0 /* Time.h */,
 				EA4716B2186FEA7200BE12C0 /* Time.m */,
+				EADA7230187D0E1600B5971A /* Beep 1.mov */,
+				EADA7231187D0E1600B5971A /* Beep 2.mp3 */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -251,7 +261,9 @@
 			files = (
 				EAD65FE3185E740800B1A9D3 /* Images.xcassets in Resources */,
 				EAD65FD2185E740800B1A9D3 /* InfoPlist.strings in Resources */,
+				EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */,
 				EAD65FDB185E740800B1A9D3 /* Main.storyboard in Resources */,
+				EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,5 +12,6 @@
 
 + (NSString *)generateScramble;
 + (NSString *)formatTime:(double)seconds;
++ (NSString *)getEmailMessageBody;
 
 @end

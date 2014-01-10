@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 Hamdan Javeed. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
 #import "RubiksViewTimeViewController.h"
 #import "RubiksUtil.h"
 #import "Time.h"
 
-@interface RubiksViewTimeViewController ()
+@interface RubiksViewTimeViewController () <MFMailComposeViewControllerDelegate>
 
 @end
 
@@ -46,7 +47,6 @@
     return cell;
 }
 
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
@@ -73,15 +73,28 @@
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a story board-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ 
+ */
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)email:(id)sender {
+    MFMailComposeViewController *emailVC = [[MFMailComposeViewController alloc] init];
+    [emailVC setSubject:@"3x3 Times"];
+    [emailVC setMessageBody:[RubiksUtil getEmailMessageBody] isHTML:NO];
+    emailVC.mailComposeDelegate = self;
+    [self presentViewController:emailVC animated:YES completion:nil];
 }
 
- */
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self becomeFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

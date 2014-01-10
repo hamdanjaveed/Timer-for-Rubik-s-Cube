@@ -23,6 +23,9 @@
 @property (nonatomic) BOOL inspectionDidFinish;
 
 @property (weak, nonatomic) IBOutlet UILabel *scrambleLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *blurView;
+@property (nonatomic) BOOL isBlurred;
 @end
 
 @implementation RubiksTimeViewController
@@ -31,6 +34,9 @@
     [super viewDidLoad];
     self.fireDate = [NSDate date];
     [self generateScramble];
+    
+    [self.blurView setOpaque:NO];
+    [self.blurView setUserInteractionEnabled:NO];
 }
 
 #define TIME_ARRAY_KEY @"times"
@@ -56,6 +62,8 @@
             [self.inspectionTimer invalidate];
             self.timerLabel.text = @"Tap to start";
         }
+        
+        [self toggleBlur];
     }
 }
 
@@ -67,8 +75,24 @@
         self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
         [self.inspectionTimer fire];
         self.inspectionDidFinish = NO;
+        
+        [self toggleBlur];
     }
     self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
+}
+
+#define ANIMATION_TIME 0.3f
+- (void)toggleBlur {
+    if (self.isBlurred) {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        }];
+    } else {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        }];
+    }
+    self.isBlurred = !self.isBlurred;
 }
 
 - (void)update:(NSTimer *)timer {
