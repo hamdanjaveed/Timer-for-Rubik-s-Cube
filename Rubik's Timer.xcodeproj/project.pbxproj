@@ -199,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAD65FF9185E740800B1A9D3 /* Build configuration list for PBXNativeTarget "Rubik's Timer" */;
 			buildPhases = (
+				EAC6ED91187FD79D004A5130 /* ShellScript */,
 				EAD65FC0185E740800B1A9D3 /* Sources */,
 				EAD65FC1185E740800B1A9D3 /* Frameworks */,
 				EAD65FC2185E740800B1A9D3 /* Resources */,
@@ -286,6 +287,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAC6ED91187FD79D004A5130 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN))\nbN=$(($bN + 1))\nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAD65FC0185E740800B1A9D3 /* Sources */ = {
@@ -431,6 +448,7 @@
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -444,6 +462,7 @@
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
