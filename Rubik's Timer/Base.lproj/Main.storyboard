@@ -16,29 +16,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scramble" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="zmr-Fo-GiT">
-                                <rect key="frame" x="20" y="144" width="280" height="254"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scramble" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="zmr-Fo-GiT">
+                                <rect key="frame" x="20" y="206" width="280" height="254"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" red="0.2419084821428571" green="0.23660983824863097" blue="0.22816368202110388" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrk-BU-b0j" userLabel="Blur">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrk-BU-b0j" userLabel="Blur">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-gM-Q5Y">
-                                        <rect key="frame" x="20" y="89" width="280" height="76"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-gM-Q5Y">
+                                        <rect key="frame" x="20" y="104" width="280" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="g9e-Ah-efV"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1mM-gM-Q5Y" secondAttribute="trailing" constant="20" symbolic="YES" id="YRd-Ti-9Eo"/>
+                                    <constraint firstItem="1mM-gM-Q5Y" firstAttribute="leading" secondItem="Qrk-BU-b0j" secondAttribute="leading" constant="20" symbolic="YES" id="agj-Tz-KKx"/>
+                                    <constraint firstItem="1mM-gM-Q5Y" firstAttribute="top" secondItem="Qrk-BU-b0j" secondAttribute="top" constant="104" id="alk-Xp-2Al"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.55686277149999996" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="zmr-Fo-GiT" firstAttribute="centerX" secondItem="Qrk-BU-b0j" secondAttribute="centerX" id="2Qw-2N-goF"/>
+                            <constraint firstItem="zmr-Fo-GiT" firstAttribute="top" secondItem="yMf-4s-MQV" secondAttribute="bottom" constant="186" id="3Fq-A5-ZRB"/>
+                            <constraint firstAttribute="bottom" secondItem="Qrk-BU-b0j" secondAttribute="bottom" constant="-88" id="6mp-C5-DcX"/>
+                            <constraint firstItem="Qrk-BU-b0j" firstAttribute="top" secondItem="2VE-Yg-loa" secondAttribute="top" id="Wxv-Ox-FKS"/>
+                            <constraint firstAttribute="bottom" secondItem="zmr-Fo-GiT" secondAttribute="bottom" constant="20" symbolic="YES" id="gVx-zZ-Ey6"/>
+                            <constraint firstItem="zmr-Fo-GiT" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="20" symbolic="YES" id="hjr-Ly-u5C"/>
+                            <constraint firstAttribute="trailing" secondItem="zmr-Fo-GiT" secondAttribute="trailing" constant="20" symbolic="YES" id="q2e-r1-5Rq"/>
+                            <constraint firstItem="Qrk-BU-b0j" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="zob-X2-m3i"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="first" id="u1e-5L-l1D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
