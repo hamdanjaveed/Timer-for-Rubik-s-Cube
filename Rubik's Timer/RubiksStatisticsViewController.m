@@ -11,10 +11,12 @@
 #import "Time.h"
 
 @interface RubiksStatisticsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *numberOfSolvesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *average5Label;
 @property (weak, nonatomic) IBOutlet UILabel *average10Label;
+@property (weak, nonatomic) IBOutlet UILabel *worstLabel;
 
 @property (strong, nonatomic) NSArray *times;
 @end
@@ -34,16 +36,31 @@
 - (void)updateStatistics {
     self.times = [[NSUserDefaults standardUserDefaults] objectForKey:@"times"];
     if ([self.times count]) {
+        [self updateNumberOfSolves];
         [self updateBest];
+        [self updateWorst];
         [self updateAverage];
         [self updateAverageOf5];
         [self updateAverageOf10];
     } else {
         self.bestLabel.text = @"Best: No recorded solves";
+        self.worstLabel.text = @"Worst: No recorded solves";
         self.averageLabel.text = @"Average: No recorded solves";
         self.average5Label.text = @"Average of 5: Need 5 more solves";
         self.average10Label.text = @"Average of 10: Need 10 more solves";
     }
+}
+
+- (void)updateWorst {
+    double max = [Time getTimeFromArray:[self.times firstObject]];
+    for (int i = 1; i < [self.times count]; i++) {
+        max = MAX(max, [Time getTimeFromArray:self.times[i]]);
+    }
+    self.worstLabel.text = [NSString stringWithFormat:@"Worst: %@", [RubiksUtil formatTime:max]];
+}
+
+- (void)updateNumberOfSolves {
+    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", [[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count]];
 }
 
 - (void)updateBest {
