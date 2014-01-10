@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A5BA4187D2CB600C17269 /* MessageUI.framework */; };
+		EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */; };
+		EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */; };
+		EA4716B3186FEA7200BE12C0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4716B2186FEA7200BE12C0 /* Time.m */; };
 		EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */; };
 		EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7F0186BDD9800872953 /* RubiksUtil.m */; };
 		EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */; };
@@ -24,6 +28,8 @@
 		EAD65FF4185E740800B1A9D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FF2185E740800B1A9D3 /* InfoPlist.strings */; };
 		EAD65FF6185E740800B1A9D3 /* Rubik_s_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */; };
 		EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */; };
+		EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = EADA7230187D0E1600B5971A /* Beep 1.mov */; };
+		EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EADA7231187D0E1600B5971A /* Beep 2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA0A5BA4187D2CB600C17269 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EA0A61EB187FB53000A7FB38 /* RubiksIndividualTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksIndividualTimeViewController.h; sourceTree = "<group>"; };
+		EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksIndividualTimeViewController.m; sourceTree = "<group>"; };
+		EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewController.h; sourceTree = "<group>"; };
+		EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsViewController.m; sourceTree = "<group>"; };
+		EA4716B1186FEA7200BE12C0 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		EA4716B2186FEA7200BE12C0 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
 		EA7EC7EC186BDB1400872953 /* RubiksStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksStatisticsViewController.h; sourceTree = "<group>"; };
 		EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksStatisticsViewController.m; sourceTree = "<group>"; };
 		EA7EC7EF186BDD9800872953 /* RubiksUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksUtil.h; sourceTree = "<group>"; };
@@ -62,6 +75,8 @@
 		EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rubik_s_TimerTests.m; sourceTree = "<group>"; };
 		EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksTimeViewController.h; sourceTree = "<group>"; };
 		EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksTimeViewController.m; sourceTree = "<group>"; };
+		EADA7230187D0E1600B5971A /* Beep 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Beep 1.mov"; sourceTree = "<group>"; };
+		EADA7231187D0E1600B5971A /* Beep 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Beep 2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */,
 				EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */,
 				EAD65FCC185E740800B1A9D3 /* UIKit.framework in Frameworks */,
 				EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */,
@@ -110,6 +126,7 @@
 		EAD65FC6185E740800B1A9D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA0A5BA4187D2CB600C17269 /* MessageUI.framework */,
 				EAD65FC7185E740800B1A9D3 /* Foundation.framework */,
 				EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */,
 				EAD65FCB185E740800B1A9D3 /* UIKit.framework */,
@@ -130,6 +147,14 @@
 				EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */,
 				EA7EC7EF186BDD9800872953 /* RubiksUtil.h */,
 				EA7EC7F0186BDD9800872953 /* RubiksUtil.m */,
+				EA0A61EB187FB53000A7FB38 /* RubiksIndividualTimeViewController.h */,
+				EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */,
+				EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewController.h */,
+				EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */,
+				EA4716B1186FEA7200BE12C0 /* Time.h */,
+				EA4716B2186FEA7200BE12C0 /* Time.m */,
+				EADA7230187D0E1600B5971A /* Beep 1.mov */,
+				EADA7231187D0E1600B5971A /* Beep 2.mp3 */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -174,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAD65FF9185E740800B1A9D3 /* Build configuration list for PBXNativeTarget "Rubik's Timer" */;
 			buildPhases = (
+				EAC6ED91187FD79D004A5130 /* ShellScript */,
 				EAD65FC0185E740800B1A9D3 /* Sources */,
 				EAD65FC1185E740800B1A9D3 /* Frameworks */,
 				EAD65FC2185E740800B1A9D3 /* Resources */,
@@ -246,7 +272,9 @@
 			files = (
 				EAD65FE3185E740800B1A9D3 /* Images.xcassets in Resources */,
 				EAD65FD2185E740800B1A9D3 /* InfoPlist.strings in Resources */,
+				EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */,
 				EAD65FDB185E740800B1A9D3 /* Main.storyboard in Resources */,
+				EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +288,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EAC6ED91187FD79D004A5130 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN))\nbN=$(($bN + 1))\nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EAD65FC0185E740800B1A9D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -268,8 +312,11 @@
 				EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */,
 				EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */,
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
+				EA4716B3186FEA7200BE12C0 /* Time.m in Sources */,
 				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
+				EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewController.m in Sources */,
+				EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */,
 				EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +448,7 @@
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -414,6 +462,7 @@
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

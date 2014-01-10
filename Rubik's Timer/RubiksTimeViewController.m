@@ -8,6 +8,7 @@
 
 #import "RubiksTimeViewController.h"
 #import "RubiksUtil.h"
+#import "Time.h"
 
 
 @interface RubiksTimeViewController ()
@@ -20,8 +21,12 @@
 
 @property (strong, nonatomic) NSTimer *inspectionTimer;
 @property (nonatomic) BOOL inspectionDidFinish;
+@property (nonatomic) int startingInspectionTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *scrambleLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *blurView;
+@property (nonatomic) BOOL isBlurred;
 @end
 
 @implementation RubiksTimeViewController
@@ -30,43 +35,92 @@
     [super viewDidLoad];
     self.fireDate = [NSDate date];
     [self generateScramble];
+    
+    [self.blurView setOpaque:NO];
+    [self.blurView setUserInteractionEnabled:NO];
+    
+    NSDictionary *settings = [[NSUserDefaults standardUserDefaults] objectForKey:@"settings"];
+    if (!settings) {
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", nil];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"settings"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
 }
 
 #define TIME_ARRAY_KEY @"times"
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
-        [self.timer invalidate];
         self.currentTouchDidStopTimer = YES;
         
         if (self.inspectionDidFinish) {
-            NSNumber *time = [NSNumber numberWithDouble:self.currentTime];
+            [self.timer invalidate];
+            Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
             NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
             if (!timesInMemory) {
                 timesInMemory = [[NSMutableArray alloc] init];
             }
-            [timesInMemory insertObject:time atIndex:0];
+            [timesInMemory insertObject:[Time convertToArray:time] atIndex:0];
             [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self generateScramble];
-        } else {
-            self.timerIsRunning = NO;
-            [self.inspectionTimer invalidate];
-            self.timerLabel.text = @"Tap to start";
+            
+            [self toggleBlur];
         }
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (!self.timerIsRunning && !self.currentTouchDidStopTimer) {
+    if (!self.startingInspectionTime && !self.currentTouchDidStopTimer) {
         self.timerIsRunning = YES;
         self.currentTime = 0;
         self.fireDate = [NSDate date];
-        self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
-        [self.inspectionTimer fire];
-        self.inspectionDidFinish = NO;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+        [self.timer fire];
+        self.inspectionDidFinish = YES;
+        
+        [self toggleBlur];
+    } else {
+        if (!self.timerIsRunning && !self.currentTouchDidStopTimer) {
+            self.timerIsRunning = YES;
+            self.currentTime = 0;
+            self.fireDate = [NSDate date];
+            self.inspectionTimer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(updateInspectionTimer:) userInfo:nil repeats:YES];
+            [self.inspectionTimer fire];
+            self.inspectionDidFinish = NO;
+        
+            [self toggleBlur];
+        } else if (!self.inspectionDidFinish) {
+            self.timerIsRunning = YES;
+            self.currentTime = 0;
+            self.fireDate = [NSDate date];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+            [self.timer fire];
+        
+            [self.inspectionTimer invalidate];
+            self.inspectionDidFinish = YES;
+        }
     }
     self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
+}
+
+#define ANIMATION_TIME 0.3f
+- (void)toggleBlur {
+    if (self.isBlurred) {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        }];
+    } else {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        }];
+    }
+    self.isBlurred = !self.isBlurred;
 }
 
 - (void)update:(NSTimer *)timer {
@@ -74,9 +128,8 @@
     self.timerLabel.text = [RubiksUtil formatTime:self.currentTime];
 }
 
-#define INSPECTION_TIME 3
 - (void)updateInspectionTimer:(NSTimer *)timer {
-    if ([[NSDate date] timeIntervalSinceDate:self.fireDate] > INSPECTION_TIME) {
+    if ([[NSDate date] timeIntervalSinceDate:self.fireDate] > self.startingInspectionTime) {
         self.timerIsRunning = YES;
         self.currentTime = 0;
         self.fireDate = [NSDate date];
@@ -86,7 +139,7 @@
         [self.inspectionTimer invalidate];
         self.inspectionDidFinish = YES;
     } else {
-        int seconds = INSPECTION_TIME - [[NSDate date] timeIntervalSinceDate:self.fireDate] + 1;
+        int seconds = self.startingInspectionTime - [[NSDate date] timeIntervalSinceDate:self.fireDate] + 1;
         self.timerLabel.text = [NSString stringWithFormat:@"%d", seconds];
     }
 }
