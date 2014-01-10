@@ -43,10 +43,10 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
-        [self.timer invalidate];
         self.currentTouchDidStopTimer = YES;
         
         if (self.inspectionDidFinish) {
+            [self.timer invalidate];
             Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
             NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
             if (!timesInMemory) {
@@ -57,13 +57,9 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self generateScramble];
-        } else {
-            self.timerIsRunning = NO;
-            [self.inspectionTimer invalidate];
-            self.timerLabel.text = @"Tap to start";
+            
+            [self toggleBlur];
         }
-        
-        [self toggleBlur];
     }
 }
 
@@ -77,6 +73,15 @@
         self.inspectionDidFinish = NO;
         
         [self toggleBlur];
+    } else if (!self.inspectionDidFinish) {
+        self.timerIsRunning = YES;
+        self.currentTime = 0;
+        self.fireDate = [NSDate date];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+        [self.timer fire];
+        
+        [self.inspectionTimer invalidate];
+        self.inspectionDidFinish = YES;
     }
     self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
 }
@@ -100,7 +105,7 @@
     self.timerLabel.text = [RubiksUtil formatTime:self.currentTime];
 }
 
-#define INSPECTION_TIME 3
+#define INSPECTION_TIME 15
 - (void)updateInspectionTimer:(NSTimer *)timer {
     if ([[NSDate date] timeIntervalSinceDate:self.fireDate] > INSPECTION_TIME) {
         self.timerIsRunning = YES;
