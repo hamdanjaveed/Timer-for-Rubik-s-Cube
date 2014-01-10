@@ -58,7 +58,7 @@
                             <constraint firstItem="Qrk-BU-b0j" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="zob-X2-m3i"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="timer" id="u1e-5L-l1D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="blurView" destination="Qrk-BU-b0j" id="KZb-aJ-fxl"/>
@@ -120,7 +120,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.55686277149999996" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="second" id="bYn-J3-RtF"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="statistics" id="bYn-J3-RtF"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="average10Label" destination="ova-Pv-bHD" id="Xos-SN-fQ7"/>
@@ -244,7 +244,7 @@
         <scene sceneID="jat-IW-oDT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOv-gm-JzW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Times" image="second" id="3j4-fj-UFr"/>
+                    <tabBarItem key="tabBarItem" title="My Times" image="my times" id="3j4-fj-UFr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tge-ay-oxz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -298,7 +298,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.55686277149999996" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="first" id="iRQ-Qo-T4J"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="iRQ-Qo-T4J"/>
                     <connections>
                         <outlet property="inspectionSlider" destination="sR9-vd-xGD" id="wE5-XW-eUM"/>
                         <outlet property="inspectionTimeLabel" destination="QnM-Th-xgJ" id="Ofs-Be-AG8"/>
@@ -310,8 +310,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="my times" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
+        <image name="statistics" width="30" height="30"/>
+        <image name="timer" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
