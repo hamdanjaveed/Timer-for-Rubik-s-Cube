@@ -7,6 +7,7 @@
 //
 
 #import "RubiksUtil.h"
+#import "Time.h"
 
 @implementation RubiksUtil
 
@@ -18,7 +19,6 @@
     do {
         move2 = arc4random() % [possibleMoves count];
     } while (move2 / 3 == move1 / 3);
-    NSLog(@"%d, %d", move1, move2);
     NSMutableArray *scrambleArray = [[NSMutableArray alloc] init];
     [scrambleArray addObject:[NSNumber numberWithInt:move1]];
     [scrambleArray addObject:[NSNumber numberWithInt:move2]];
@@ -48,6 +48,15 @@
     int minutes = seconds / 60;
     seconds -= minutes * 60;
     return [NSString stringWithFormat:@"%@%@", minutes ? [NSString stringWithFormat:@"%d:", minutes] : @"", (seconds < 10 && minutes) ? [NSString stringWithFormat:@"0%.2f", seconds] : [NSString stringWithFormat:@"%.2f", seconds]];
+}
+
++ (NSString *)getEmailMessageBody {
+    NSArray *timeObjects = [[NSUserDefaults standardUserDefaults] objectForKey:@"times"];
+    NSMutableArray *times = [[NSMutableArray alloc] init];
+    for (NSArray *timeArray in timeObjects) {
+        [times addObject:[NSNumber numberWithDouble:[Time getTimeFromArray:timeArray]]];
+    }
+    return [times componentsJoinedByString:@"\n"];
 }
 
 @end

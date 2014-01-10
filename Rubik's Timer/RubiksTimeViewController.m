@@ -32,6 +32,9 @@
 @property (strong, nonatomic) UISnapBehavior *snap4;
 
 @property (strong, nonatomic) UIDynamicItemBehavior *snapItem;
+
+@property (weak, nonatomic) IBOutlet UIView *blurView;
+@property (nonatomic) BOOL isBlurred;
 @end
 
 @implementation RubiksTimeViewController
@@ -60,11 +63,13 @@
     self.snapItem.allowsRotation = NO;
     self.snapItem.resistance = 25;
     [self.animator addBehavior:self.snapItem];
+    
+    [self.blurView setOpaque:NO];
+    [self.blurView setUserInteractionEnabled:NO];
 }
 
 #define TIME_ARRAY_KEY @"times"
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self generateScramble];
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
         [self.timer invalidate];
@@ -87,10 +92,12 @@
             self.timerLabel.text = @"Tap to start";
         }
         
-        [self.animator removeBehavior:self.snap2];
-        [self.animator addBehavior:self.snap1];
-        [self.animator removeBehavior:self.snap4];
-        [self.animator addBehavior:self.snap3];
+//        [self.animator removeBehavior:self.snap2];
+//        [self.animator addBehavior:self.snap1];
+//        [self.animator removeBehavior:self.snap4];
+//        [self.animator addBehavior:self.snap3];
+        
+        [self toggleBlur];
     }
 }
 
@@ -103,12 +110,28 @@
         [self.inspectionTimer fire];
         self.inspectionDidFinish = NO;
         
-        [self.animator removeBehavior:self.snap1];
-        [self.animator addBehavior:self.snap2];
-        [self.animator removeBehavior:self.snap3];
-        [self.animator addBehavior:self.snap4];
+//        [self.animator removeBehavior:self.snap1];
+//        [self.animator addBehavior:self.snap2];
+//        [self.animator removeBehavior:self.snap3];
+//        [self.animator addBehavior:self.snap4];
+        
+        [self toggleBlur];
     }
     self.currentTouchDidStopTimer = self.currentTouchDidStopTimer ? NO : YES;
+}
+
+#define ANIMATION_TIME 0.3f
+- (void)toggleBlur {
+    if (self.isBlurred) {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        }];
+    } else {
+        [UIView animateWithDuration:ANIMATION_TIME animations:^{
+            self.blurView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        }];
+    }
+    self.isBlurred = !self.isBlurred;
 }
 
 - (void)update:(NSTimer *)timer {
