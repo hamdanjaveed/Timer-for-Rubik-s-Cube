@@ -59,4 +59,15 @@
     return [times componentsJoinedByString:@"\n"];
 }
 
++ (UIColor *)getCurrentColor {
+    NSString *currentColor = [[NSUserDefaults standardUserDefaults] objectForKey:@"current color"];
+    if ([currentColor isEqualToString:@"Blue"]) {
+        return [UIColor blueColor];
+    } else if ([currentColor isEqualToString:@"Green"]) {
+        return [UIColor greenColor];
+    } else {
+        return [UIColor orangeColor];
+    }
+}
+
 @end

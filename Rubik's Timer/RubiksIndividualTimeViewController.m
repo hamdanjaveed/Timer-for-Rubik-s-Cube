@@ -22,7 +22,7 @@
 
     self.title = [RubiksUtil formatTime:self.time];
     self.timeLabel.text = [RubiksUtil formatTime:self.time];
-    self.dateLabel.text = [NSString stringWithFormat:@"Date: %@", [NSDateFormatter localizedStringFromDate:self.date dateStyle:NSDateFormatterFullStyle timeStyle:NSDateFormatterNoStyle]];
+    self.dateLabel.text = [NSString stringWithFormat:@"Date: %@", [NSDateFormatter localizedStringFromDate:self.date dateStyle:NSDateFormatterFullStyle timeStyle: NSDateFormatterNoStyle]];
     self.scrambleLabel.text = [NSString stringWithFormat:@"Scramble: %@", self.scramble];
 }
 

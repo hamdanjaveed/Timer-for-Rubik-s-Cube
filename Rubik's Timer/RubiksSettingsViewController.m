@@ -2,39 +2,79 @@
 //  RubiksSettingsViewController.m
 //  Rubik's Timer
 //
-//  Created by Hamdan Javeed on 1/10/2014.
+//  Created by Hamdan Javeed on 2/15/2014.
 //  Copyright (c) 2014 Hamdan Javeed. All rights reserved.
 //
 
 #import "RubiksSettingsViewController.h"
+#import "RubiksSettingsThemeViewController.h"
 
 @interface RubiksSettingsViewController () <UIAlertViewDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *inspectionTimeLabel;
-@property (weak, nonatomic) IBOutlet UISlider *inspectionSlider;
+@property (strong, nonatomic) NSArray *sectionHeaders;
+@property (strong, nonatomic) NSArray *tableCells;
 @end
 
 @implementation RubiksSettingsViewController
 
+- (NSArray *)tableCells {
+    if (!_tableCells) {
+        UITableViewCell *inspectionCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+        inspectionCell.textLabel.text = @"Inspection Time";
+        inspectionCell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds", [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue]];
+        
+        UITableViewCell *themeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+        themeCell.textLabel.text = @"Theme";
+        themeCell.detailTextLabel.text = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"theme"];
+        themeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        UITableViewCell *deleteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        deleteCell.textLabel.text = @"Delete all Times";
+        deleteCell.textLabel.textAlignment = NSTextAlignmentCenter;
+        deleteCell.textLabel.textColor = [UIColor redColor];
+        
+        _tableCells = @[@[inspectionCell], @[themeCell], @[deleteCell]];
+    }
+    return _tableCells;
+}
+
+- (NSArray *)sectionHeaders {
+    if (!_sectionHeaders) {
+        _sectionHeaders = @[@"Timer", @"General", @"Data"];
+    }
+    return _sectionHeaders;
+}
+
 - (void)viewDidLoad {
-    int value = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
-    self.inspectionTimeLabel.text = [NSString stringWithFormat:@"Inspection Time: %d seconds", value];
-    self.inspectionSlider.value = value;
+    [super viewDidLoad];
 }
 
-- (IBAction)inspectionTimeUpdated:(UISlider *)sender {
-    int value = sender.value;
-    self.inspectionTimeLabel.text = [NSString stringWithFormat:@"Inspection Time: %d seconds", value];
-    [sender setValue:value];
-    
-    NSMutableDictionary *settings = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] mutableCopy];
-    [settings setObject:[NSNumber numberWithInt:value] forKey:@"inspection time"];
-    [[NSUserDefaults standardUserDefaults] setObject:[settings copy] forKey:@"settings"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [self.sectionHeaders count];
 }
 
-- (IBAction)delete {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete all times" message:@"Are you sure you want to delete all your times?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
-    [alert show];
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return [self.tableCells[section] count];
+}
+
+-       (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self performSegueWithIdentifier:@"theme segue" sender:nil];
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete all times" message:@"Are you sure you want to delete all your times?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+            [alert show];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -43,6 +83,23 @@
         [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"times"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.tableCells[indexPath.section][indexPath.row];
+}
+
+- (int)getCurrectCell:(NSIndexPath *)indexPath {
+    int sum = 0;
+    for (int i = 0; i < indexPath.section; i++) {
+        sum += [self.tableCells[i] count];
+    }
+    sum += indexPath.row;
+    return sum;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.sectionHeaders[section];
 }
 
 @end

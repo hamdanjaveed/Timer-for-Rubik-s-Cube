@@ -13,5 +13,6 @@
 + (NSString *)generateScramble;
 + (NSString *)formatTime:(double)seconds;
 + (NSString *)getEmailMessageBody;
++ (UIColor *)getCurrentColor;
 
 @end

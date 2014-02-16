@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A5BA4187D2CB600C17269 /* MessageUI.framework */; };
 		EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */; };
-		EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */; };
+		EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */; };
 		EA4716B3186FEA7200BE12C0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4716B2186FEA7200BE12C0 /* Time.m */; };
+		EA476A4518AF339A00BF1AF6 /* RubiksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA476A4418AF339A00BF1AF6 /* RubiksSettingsViewController.m */; };
 		EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */; };
 		EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7EC7F0186BDD9800872953 /* RubiksUtil.m */; };
 		EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */; };
+		EACF71F818B13636008E2117 /* RubiksSettingsThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACF71F718B13636008E2117 /* RubiksSettingsThemeViewController.m */; };
 		EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC7185E740800B1A9D3 /* Foundation.framework */; };
-		EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */; };
 		EAD65FCC185E740800B1A9D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD65FCB185E740800B1A9D3 /* UIKit.framework */; };
 		EAD65FD2185E740800B1A9D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FD0185E740800B1A9D3 /* InfoPlist.strings */; };
 		EAD65FD4185E740800B1A9D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FD3185E740800B1A9D3 /* main.m */; };
@@ -46,16 +46,20 @@
 		EA0A5BA4187D2CB600C17269 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EA0A61EB187FB53000A7FB38 /* RubiksIndividualTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksIndividualTimeViewController.h; sourceTree = "<group>"; };
 		EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksIndividualTimeViewController.m; sourceTree = "<group>"; };
-		EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewController.h; sourceTree = "<group>"; };
-		EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsViewController.m; sourceTree = "<group>"; };
+		EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewControllerOld.h; sourceTree = "<group>"; };
+		EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsViewControllerOld.m; sourceTree = "<group>"; };
 		EA4716B1186FEA7200BE12C0 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		EA4716B2186FEA7200BE12C0 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
+		EA476A4318AF339A00BF1AF6 /* RubiksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewController.h; sourceTree = "<group>"; };
+		EA476A4418AF339A00BF1AF6 /* RubiksSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsViewController.m; sourceTree = "<group>"; };
 		EA7EC7EC186BDB1400872953 /* RubiksStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksStatisticsViewController.h; sourceTree = "<group>"; };
 		EA7EC7ED186BDB1400872953 /* RubiksStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksStatisticsViewController.m; sourceTree = "<group>"; };
 		EA7EC7EF186BDD9800872953 /* RubiksUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksUtil.h; sourceTree = "<group>"; };
 		EA7EC7F0186BDD9800872953 /* RubiksUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksUtil.m; sourceTree = "<group>"; };
 		EA9608E418669B130082B283 /* RubiksViewTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksViewTimeViewController.h; sourceTree = "<group>"; };
 		EA9608E518669B140082B283 /* RubiksViewTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksViewTimeViewController.m; sourceTree = "<group>"; };
+		EACF71F618B13636008E2117 /* RubiksSettingsThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsThemeViewController.h; sourceTree = "<group>"; };
+		EACF71F718B13636008E2117 /* RubiksSettingsThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsThemeViewController.m; sourceTree = "<group>"; };
 		EAD65FC4185E740800B1A9D3 /* Rubik's Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD65FC7185E740800B1A9D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAD65FC9185E740800B1A9D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,8 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0A5BA5187D2CB600C17269 /* MessageUI.framework in Frameworks */,
-				EAD65FCA185E740800B1A9D3 /* CoreGraphics.framework in Frameworks */,
 				EAD65FCC185E740800B1A9D3 /* UIKit.framework in Frameworks */,
 				EAD65FC8185E740800B1A9D3 /* Foundation.framework in Frameworks */,
 			);
@@ -149,8 +151,12 @@
 				EA7EC7F0186BDD9800872953 /* RubiksUtil.m */,
 				EA0A61EB187FB53000A7FB38 /* RubiksIndividualTimeViewController.h */,
 				EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */,
-				EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewController.h */,
-				EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewController.m */,
+				EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.h */,
+				EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */,
+				EA476A4318AF339A00BF1AF6 /* RubiksSettingsViewController.h */,
+				EA476A4418AF339A00BF1AF6 /* RubiksSettingsViewController.m */,
+				EACF71F618B13636008E2117 /* RubiksSettingsThemeViewController.h */,
+				EACF71F718B13636008E2117 /* RubiksSettingsThemeViewController.m */,
 				EA4716B1186FEA7200BE12C0 /* Time.h */,
 				EA4716B2186FEA7200BE12C0 /* Time.m */,
 				EADA7230187D0E1600B5971A /* Beep 1.mov */,
@@ -241,6 +247,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Hamdan Javeed";
 				TargetAttributes = {
+					EAD65FC3185E740800B1A9D3 = {
+						DevelopmentTeam = AK3NQ2H5W8;
+					};
 					EAD65FE7185E740800B1A9D3 = {
 						TestTargetID = EAD65FC3185E740800B1A9D3;
 					};
@@ -310,14 +319,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA7EC7EE186BDB1400872953 /* RubiksStatisticsViewController.m in Sources */,
+				EACF71F818B13636008E2117 /* RubiksSettingsThemeViewController.m in Sources */,
 				EAD65FD8185E740800B1A9D3 /* RubiksAppDelegate.m in Sources */,
 				EAD65FD4185E740800B1A9D3 /* main.m in Sources */,
 				EA4716B3186FEA7200BE12C0 /* Time.m in Sources */,
 				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
-				EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewController.m in Sources */,
+				EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m in Sources */,
 				EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */,
 				EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */,
+				EA476A4518AF339A00BF1AF6 /* RubiksSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,10 +455,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4381194E-3A38-430B-861C-933584BC5B75";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,10 +472,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rubik's Timer/Rubik's Timer-Prefix.pch";
 				INFOPLIST_FILE = "Rubik's Timer/Rubik's Timer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4381194E-3A38-430B-861C-933584BC5B75";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

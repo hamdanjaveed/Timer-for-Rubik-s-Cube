@@ -10,6 +10,14 @@
 #import "RubiksUtil.h"
 #import "Time.h"
 
+/*
+ NSUserDefaults Structure:
+ -------------------------
+ 
+ > settings
+    - inspection time
+    - theme
+ */
 
 @interface RubiksTimeViewController ()
 @property (strong, nonatomic) NSTimer *timer;
@@ -39,14 +47,21 @@
     [self.blurView setOpaque:NO];
     [self.blurView setUserInteractionEnabled:NO];
     
-    NSDictionary *settings = [[NSUserDefaults standardUserDefaults] objectForKey:@"settings"];
-    if (!settings) {
-        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", nil];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"settings"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
+    NSDictionary *settings = [ud objectForKey:@"settings"];
+    if (!settings) {
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", @"Orange", @"theme", nil];
+        [ud setObject:settings forKey:@"settings"];
+        [ud synchronize];
+    }
+
     self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.view.backgroundColor = [RubiksUtil getCurrentColor];
 }
 
 #define TIME_ARRAY_KEY @"times"
