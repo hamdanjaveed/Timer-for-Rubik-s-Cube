@@ -19,7 +19,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
     
     UIColor *foreground = [RubiksUtil getThemeForeground];
     [self.timeLabel setTextColor:foreground];
