@@ -14,6 +14,8 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
+    #import "RubiksUtil.h"
+
 #define SETTINGS_KEY @"settings"
 #define INSPECTION_TIME_KEY @"inspection time"
 #define THEME_BACKGROUND_KEY @"theme background"
@@ -22,4 +24,6 @@
 
 #define USER_SETTINGS [[NSUserDefaults standardUserDefaults] objectForKey:SETTINGS_KEY]
 #define USER_TIMES [[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]
+
+#define FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR 0.65f
 #endif

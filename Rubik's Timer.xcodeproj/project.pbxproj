@@ -29,8 +29,6 @@
 		EAD65FF4185E740800B1A9D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAD65FF2185E740800B1A9D3 /* InfoPlist.strings */; };
 		EAD65FF6185E740800B1A9D3 /* Rubik_s_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */; };
 		EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */; };
-		EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = EADA7230187D0E1600B5971A /* Beep 1.mov */; };
-		EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EADA7231187D0E1600B5971A /* Beep 2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +80,6 @@
 		EAD65FF5185E740800B1A9D3 /* Rubik_s_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rubik_s_TimerTests.m; sourceTree = "<group>"; };
 		EAD65FFF185E77B200B1A9D3 /* RubiksTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksTimeViewController.h; sourceTree = "<group>"; };
 		EAD66000185E77B200B1A9D3 /* RubiksTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksTimeViewController.m; sourceTree = "<group>"; };
-		EADA7230187D0E1600B5971A /* Beep 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Beep 1.mov"; sourceTree = "<group>"; };
-		EADA7231187D0E1600B5971A /* Beep 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Beep 2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +160,6 @@
 				EA5C0B3B19149AE500850DCC /* RubiksAdhereToThemeViewController.m */,
 				EA4716B1186FEA7200BE12C0 /* Time.h */,
 				EA4716B2186FEA7200BE12C0 /* Time.m */,
-				EADA7230187D0E1600B5971A /* Beep 1.mov */,
-				EADA7231187D0E1600B5971A /* Beep 2.mp3 */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -286,9 +280,7 @@
 			files = (
 				EAD65FE3185E740800B1A9D3 /* Images.xcassets in Resources */,
 				EAD65FD2185E740800B1A9D3 /* InfoPlist.strings in Resources */,
-				EADA7233187D0E1600B5971A /* Beep 2.mp3 in Resources */,
 				EAD65FDB185E740800B1A9D3 /* Main.storyboard in Resources */,
-				EADA7232187D0E1600B5971A /* Beep 1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

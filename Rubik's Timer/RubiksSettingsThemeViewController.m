@@ -22,6 +22,7 @@
     [super viewWillAppear:animated];
     
     [self resetSelectedIndexPath];
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
 }
 
 - (void)resetSelectedIndexPath {

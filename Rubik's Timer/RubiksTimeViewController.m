@@ -7,7 +7,6 @@
 //
 
 #import "RubiksTimeViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 
 /*
@@ -66,9 +65,10 @@
     
     UIColor *foreground = [RubiksUtil getThemeForeground];
     [self.timerLabel setTextColor:foreground];
-    CGFloat r, g, b, a;
-    [foreground getRed:&r green:&g blue:&b alpha:&a];
-    [self.scrambleLabel setTextColor:[UIColor colorWithRed:r green:g blue:b alpha:a * 0.5f]];
+    [self.scrambleLabel setTextColor:[RubiksUtil reduceAlphaOfColor:foreground
+                                                        byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR]];
+    
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -79,4 +79,23 @@
     }
 }
 
++ (UIColor *)reduceAlphaOfColor:(UIColor *)color
+                    byAFactorOf:(float)factor {
+    
+    CGFloat r, g, b, a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:r green:g blue:b alpha:a * factor];
+}
+
++ (void)setAppropriateStatusBarStyleWithShouldCheck:(BOOL)shouldCheck {
+    if (!shouldCheck) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    } else {
+        NSString *background = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
+        if ([background isEqualToString:@"Black"]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }
+    }
+}
+
 @end

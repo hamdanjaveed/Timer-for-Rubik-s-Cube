@@ -49,9 +49,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     [super viewWillAppear:animated];
     
     [self resetDetailText];
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
 }
 
 - (void)resetDetailText {

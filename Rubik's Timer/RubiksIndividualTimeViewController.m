@@ -7,7 +7,6 @@
 //
 
 #import "RubiksIndividualTimeViewController.h"
-#import "RubiksUtil.h"
 
 @interface RubiksIndividualTimeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -19,6 +18,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
 }
 
 - (void)viewDidLoad {

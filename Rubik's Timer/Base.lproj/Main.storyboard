@@ -142,6 +142,7 @@
                         <outlet property="averageLabel" destination="PVE-Lo-zFN" id="GXw-9W-PsW"/>
                         <outlet property="bestLabel" destination="3kB-aj-bCl" id="9nW-Zu-DGT"/>
                         <outlet property="numberOfSolvesLabel" destination="G5E-Jl-Cgc" id="nWh-re-P5P"/>
+                        <outlet property="titleLabel" destination="4H3-HO-WaM" id="qK5-7D-42q"/>
                         <outlet property="worstLabel" destination="ZAg-59-UU9" id="bPP-n8-Scf"/>
                     </connections>
                 </viewController>

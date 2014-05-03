@@ -7,10 +7,10 @@
 //
 
 #import "RubiksStatisticsViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 
 @interface RubiksStatisticsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfSolvesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
@@ -30,7 +30,20 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.titleLabel setTextColor:foreground];
+    UIColor *foregroundLight = [RubiksUtil reduceAlphaOfColor:foreground
+                                                  byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR];
+    [self.numberOfSolvesLabel setTextColor:foregroundLight];
+    [self.bestLabel setTextColor:foregroundLight];
+    [self.average10Label setTextColor:foregroundLight];
+    [self.average5Label setTextColor:foregroundLight];
+    [self.averageLabel setTextColor:foregroundLight];
+    [self.worstLabel setTextColor:foregroundLight];
+    
     [self updateStatistics];
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
 }
 
 - (void)updateStatistics {

@@ -8,7 +8,6 @@
 
 #import <MessageUI/MessageUI.h>
 #import "RubiksViewTimeViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 #import "RubiksIndividualTimeViewController.h"
 
@@ -21,6 +20,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
 }
 
 - (void)viewDidLoad {

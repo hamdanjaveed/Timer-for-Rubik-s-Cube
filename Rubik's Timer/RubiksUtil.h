@@ -15,5 +15,8 @@
 + (NSString *)getEmailMessageBody;
 + (UIColor *)getThemeBackground;
 + (UIColor *)getThemeForeground;
++ (UIColor *)reduceAlphaOfColor:(UIColor *)color
+                    byAFactorOf:(float)factor;
++ (void)setAppropriateStatusBarStyleWithShouldCheck:(BOOL)shouldCheck;
 
 @end

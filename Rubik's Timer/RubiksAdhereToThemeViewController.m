@@ -7,7 +7,6 @@
 //
 
 #import "RubiksAdhereToThemeViewController.h"
-#import "RubiksUtil.h"
 
 @interface RubiksAdhereToThemeViewController ()
 
@@ -18,6 +17,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.view.backgroundColor = [RubiksUtil getThemeBackground];
+    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
 }
 
 @end
