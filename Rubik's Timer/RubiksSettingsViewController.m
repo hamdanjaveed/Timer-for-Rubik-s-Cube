@@ -33,10 +33,13 @@
                                                                          zeroForm:@"No inspection time"
                                                                      andParameter:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue]]];
     [self.inspectionTimeSlider setValue:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] floatValue]];
+    [self.inspectionTimeSlider setMinimumTrackTintColor:[RubiksUtil getThemeBackground]];
     
     [self.themeLabel setText:[[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_BACKGROUND_STRING_KEY]];
+    [self.themeLabel setTextColor:[RubiksUtil getThemeBackground]];
     
     [self.versionLabel setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    [self.versionLabel setTextColor:[RubiksUtil getThemeBackground]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

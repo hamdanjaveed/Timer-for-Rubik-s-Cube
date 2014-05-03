@@ -10,4 +10,6 @@
 
 @interface RubiksTableViewController : UITableViewController
 
+- (void)resetTintColor;
+
 @end

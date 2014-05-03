@@ -67,6 +67,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     NSDictionary *settings = [ud objectForKey:SETTINGS_KEY];
+    
     if (![RubiksUtil checkSettingsForCorrectness:settings]) {
         NSNumber *inspectionTime = @(15);
         

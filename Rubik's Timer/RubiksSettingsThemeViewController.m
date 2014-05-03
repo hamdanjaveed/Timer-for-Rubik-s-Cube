@@ -23,17 +23,15 @@
     
     [self resetSelectedIndexPath];
     [RubiksUtil setAppropriateStatusBarStyle];
+    
+    NSLog(@"selected index is: %d", self.selectedThemeIndexPath.row);
 }
 
 - (void)resetSelectedIndexPath {
     NSArray *themes = [FILES objectForKey:FILES_THEMES_KEY];
     NSDictionary *currentTheme = [USER_SETTINGS objectForKey:THEME_KEY];
     NSInteger index = [themes indexOfObject:currentTheme];
-    if (index != NSNotFound) {
-        self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    } else {
-        NSLog(@"ERROR: COULD NOT FIND INDEX OF THEME, SETTINGS THEME VC");
-    }
+    self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,6 +41,17 @@
     NSDictionary *theme = [FILES objectForKey:FILES_THEMES_KEY][indexPath.row];
     cell.textLabel.text = [theme objectForKey:THEME_BACKGROUND_STRING_KEY];
     cell.detailTextLabel.text = [@"with " stringByAppendingString:[theme objectForKey:THEME_FOREGROUND_STRING_KEY]];
+    cell.backgroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_BACKGROUND_COLOR_KEY]];
+    [cell.textLabel setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]]];
+    [cell.detailTextLabel setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]]];
+    
+    if (self.selectedThemeIndexPath.row == indexPath.row) {
+        NSLog(@"got the thing with the thing at the row: %d", indexPath.row);
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        cell.tintColor = [NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]];
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
     
     return cell;
 }
@@ -61,6 +70,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self resetSelectedIndexPath];
     [self.tableView reloadData];
+    [self resetTintColor];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

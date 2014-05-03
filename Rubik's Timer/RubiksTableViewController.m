@@ -17,10 +17,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSLog(@"setting tint for table view");
-    
-    self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
     self.navigationController.navigationBar.translucent = NO;
+    [self resetTintColor];
+}
+
+- (void)resetTintColor {
+    self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
 }
 
 @end
