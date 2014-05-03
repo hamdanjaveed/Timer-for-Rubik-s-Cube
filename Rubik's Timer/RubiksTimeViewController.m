@@ -13,8 +13,8 @@
  NSUserDefaults Structure:
  -------------------------
 
- > times
- > settings
+ > times (NSArray)
+ > settings (NSDictionary)
     - inspection time
     - theme background
     - theme foreground

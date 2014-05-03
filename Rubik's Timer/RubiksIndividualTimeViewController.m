@@ -20,6 +20,13 @@
     [super viewWillAppear:animated];
     
     [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.timeLabel setTextColor:foreground];
+    UIColor *foregroundLight = [RubiksUtil reduceAlphaOfColor:foreground
+                                                  byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR];
+    [self.dateLabel setTextColor:foregroundLight];
+    [self.scrambleLabel setTextColor:foregroundLight];
 }
 
 - (void)viewDidLoad {
