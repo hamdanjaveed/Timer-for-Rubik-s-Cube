@@ -20,7 +20,7 @@
     if (!_tableCells) {
         UITableViewCell *inspectionCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         inspectionCell.textLabel.text = @"Inspection Time";
-        inspectionCell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds", [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue]];
+        inspectionCell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds", [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue]];
         
         UITableViewCell *themeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         themeCell.textLabel.text = @"Theme";
@@ -46,6 +46,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self resetDetailText];
+}
+
+- (void)resetDetailText {
+    ((UITableViewCell *) self.tableCells[0][0]).detailTextLabel.text = [NSString stringWithFormat:@"%d seconds", [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue]];
+    ((UITableViewCell *) self.tableCells[1][0]).detailTextLabel.text = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

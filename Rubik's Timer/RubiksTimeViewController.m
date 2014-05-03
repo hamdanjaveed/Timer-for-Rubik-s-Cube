@@ -63,7 +63,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // TODO: foreground
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.timerLabel setTextColor:foreground];
+    CGFloat r, g, b, a;
+    [foreground getRed:&r green:&g blue:&b alpha:&a];
+    [self.scrambleLabel setTextColor:[UIColor colorWithRed:r green:g blue:b alpha:a * 0.5f]];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
