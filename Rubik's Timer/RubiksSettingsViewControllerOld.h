@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RubiksTableViewController.h"
 
-@interface RubiksSettingsViewControllerOld : UIViewController
+@interface RubiksSettingsViewControllerOld : RubiksTableViewController
 
 @end

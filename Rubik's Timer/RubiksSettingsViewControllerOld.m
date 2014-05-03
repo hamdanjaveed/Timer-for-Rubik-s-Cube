@@ -40,7 +40,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIME_ARRAY_KEY];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIMES_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }

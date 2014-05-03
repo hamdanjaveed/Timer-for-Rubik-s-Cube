@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RubiksViewController.h"
 
-@interface RubiksAdhereToThemeViewController : UIViewController
+@interface RubiksAdhereToThemeViewController : RubiksViewController
 
 @end

@@ -17,9 +17,11 @@
 + (UIColor *)getThemeForeground;
 + (UIColor *)reduceAlphaOfColor:(UIColor *)color
                     byAFactorOf:(float)factor;
-+ (void)setAppropriateStatusBarStyleWithShouldCheck:(BOOL)shouldCheck;
++ (void)setAppropriateStatusBarStyle;
 + (NSString *)pluralizeStringWithSingularForm:(NSString *)singular
                                      zeroForm:(NSString *)zeroForm
                                  andParameter:(int)parameter;
++ (BOOL)checkSettingsForCorrectness:(NSDictionary *)settings;
++ (void)buildFiles;
 
 @end

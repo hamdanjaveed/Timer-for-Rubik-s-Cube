@@ -21,7 +21,7 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)viewDidLoad {
@@ -66,7 +66,7 @@
             // Delete the row from the data source
             NSMutableArray *times = [NSMutableArray arrayWithArray:USER_TIMES];
             [times removeObjectAtIndex:indexPath.row];
-            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIME_ARRAY_KEY];
+            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }

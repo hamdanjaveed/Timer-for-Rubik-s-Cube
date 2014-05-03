@@ -22,30 +22,27 @@
     [super viewWillAppear:animated];
     
     [self resetSelectedIndexPath];
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)resetSelectedIndexPath {
-    NSString *currentTheme = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
-    if ([currentTheme isEqualToString:@"Orange"]) {
-        self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    } else if ([currentTheme isEqualToString:@"Black"]) {
-        self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-    } else if ([currentTheme isEqualToString:@"Green"]) {
-        self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSArray *themes = [FILES objectForKey:FILES_THEMES_KEY];
+    NSDictionary *currentTheme = [USER_SETTINGS objectForKey:THEME_KEY];
+    NSInteger index = [themes indexOfObject:currentTheme];
+    if (index != NSNotFound) {
+        self.selectedThemeIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    } else {
+        NSLog(@"ERROR: COULD NOT FIND INDEX OF THEME, SETTINGS THEME VC");
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"theme cell" forIndexPath:indexPath];
     
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    
-    if ([self.selectedThemeIndexPath isEqual:indexPath]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    // Configure the cell...
+    NSDictionary *theme = [FILES objectForKey:FILES_THEMES_KEY][indexPath.row];
+    cell.textLabel.text = [theme objectForKey:THEME_BACKGROUND_STRING_KEY];
+    cell.detailTextLabel.text = [@"with " stringByAppendingString:[theme objectForKey:THEME_FOREGROUND_STRING_KEY]];
     
     return cell;
 }
@@ -54,17 +51,20 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    
+    NSDictionary *theme = [FILES objectForKey:FILES_THEMES_KEY][indexPath.row];
 
     NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
-    [settings setObject:[tableView cellForRowAtIndexPath:indexPath].textLabel.text forKey:THEME_BACKGROUND_KEY];
-    NSString *foreground = [[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text substringFromIndex:[@"with " length]];
-    [settings setObject:foreground forKey:THEME_FOREGROUND_KEY];
-
+    [settings setObject:theme forKey:THEME_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:settings forKey:SETTINGS_KEY];
     SYNCHRONIZE_SETTINGS;
     
     [self resetSelectedIndexPath];
     [self.tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[FILES objectForKey:FILES_THEMES_KEY] count];
 }
 
 @end

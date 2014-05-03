@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RubiksTableViewController.h"
 
-@interface RubiksViewTimeViewController : UITableViewController
+@interface RubiksViewTimeViewController : RubiksTableViewController
 
 @end

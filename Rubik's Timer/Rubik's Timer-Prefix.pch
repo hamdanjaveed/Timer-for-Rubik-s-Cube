@@ -18,12 +18,23 @@
 
 #define SETTINGS_KEY @"settings"
 #define INSPECTION_TIME_KEY @"inspection time"
-#define THEME_BACKGROUND_KEY @"theme background"
-#define THEME_FOREGROUND_KEY @"theme foreground"
-#define TIME_ARRAY_KEY @"times"
 
-#define USER_SETTINGS [[NSUserDefaults standardUserDefaults] objectForKey:SETTINGS_KEY]
-#define USER_TIMES [[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]
+#define THEME_KEY @"theme"
+#define THEME_BACKGROUND_COLOR_KEY @"theme background color"
+#define THEME_FOREGROUND_COLOR_KEY @"theme foreground color"
+#define THEME_BACKGROUND_STRING_KEY @"theme background string"
+#define THEME_FOREGROUND_STRING_KEY @"theme foreground string"
+#define THEME_TYPE_KEY @"theme type"
+
+#define TIMES_KEY @"times"
+
+#define FILES_KEY @"files"
+#define FILES_THEMES_KEY @"files themes"
+
+#define USER_SETTINGS [[NSUserDefaults standardUserDefaults] dictionaryForKey:SETTINGS_KEY]
+#define USER_TIMES [[NSUserDefaults standardUserDefaults] arrayForKey:TIMES_KEY]
+#define FILES [[NSUserDefaults standardUserDefaults] dictionaryForKey:FILES_KEY]
+
 #define SYNCHRONIZE_SETTINGS [[NSUserDefaults standardUserDefaults] synchronize]
 
 #define FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR 0.65f

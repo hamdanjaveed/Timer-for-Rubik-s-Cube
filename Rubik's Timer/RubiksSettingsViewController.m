@@ -7,7 +7,6 @@
 //
 
 #import "RubiksSettingsViewController.h"
-#import "RubiksSettingsThemeViewController.h"
 
 @interface RubiksSettingsViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *inspectionTimeLabel;
@@ -26,7 +25,7 @@
     [super viewWillAppear:animated];
     
     [self setData];
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:NO];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)setData {
@@ -35,9 +34,13 @@
                                                                      andParameter:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue]]];
     [self.inspectionTimeSlider setValue:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] floatValue]];
     
-    [self.themeLabel setText:[USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY]];
+    [self.themeLabel setText:[[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_BACKGROUND_STRING_KEY]];
     
     [self.versionLabel setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 -       (void)tableView:(UITableView *)tableView
@@ -57,13 +60,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIME_ARRAY_KEY];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIMES_KEY];
         SYNCHRONIZE_SETTINGS;
     }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (IBAction)inspectionTimerDidChange:(id)sender {

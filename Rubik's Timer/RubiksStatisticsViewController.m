@@ -43,11 +43,11 @@
     [self.worstLabel setTextColor:foregroundLight];
     
     [self updateStatistics];
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)updateStatistics {
-    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:TIME_ARRAY_KEY];
+    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:TIMES_KEY];
     if ([self.times count]) {
         [self updateNumberOfSolves];
         [self updateBest];

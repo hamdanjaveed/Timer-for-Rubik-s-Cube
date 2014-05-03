@@ -14,10 +14,24 @@
  -------------------------
 
  > times (NSArray)
+ 
  > settings (NSDictionary)
-    - inspection time
-    - theme background
-    - theme foreground
+    - inspection time: NSNumber
+    - theme: NSDictionary
+        - background color: UIColor
+        - foreground color: UIColor
+        - background string: NSString
+        - foreground string: NSString
+        - type: NSString
+ 
+ > files (NSDictionary)
+    - themes: NSArray
+        - theme[i] (NSDictionary)
+            - background color: UIColor
+            - foreground color: UIColor
+            - background string: NSString
+            - foreground string: NSString
+            - type: NSString
  */
 
 @interface RubiksTimeViewController ()
@@ -48,11 +62,16 @@
     [self.blurView setOpaque:NO];
     [self.blurView setUserInteractionEnabled:NO];
     
+    [RubiksUtil buildFiles];
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     NSDictionary *settings = [ud objectForKey:SETTINGS_KEY];
-    if (!settings) {
-        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], INSPECTION_TIME_KEY, @"Orange", THEME_BACKGROUND_KEY, @"Black", THEME_FOREGROUND_KEY, nil];
+    if (![RubiksUtil checkSettingsForCorrectness:settings]) {
+        NSNumber *inspectionTime = @(15);
+        
+        NSDictionary *theme = [[FILES objectForKey:FILES_THEMES_KEY] firstObject];
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:inspectionTime, INSPECTION_TIME_KEY, theme, THEME_KEY, nil];
         [ud setObject:settings forKey:SETTINGS_KEY];
         [ud synchronize];
     }
@@ -68,7 +87,7 @@
     [self.scrambleLabel setTextColor:[RubiksUtil reduceAlphaOfColor:foreground
                                                         byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR]];
     
-    [RubiksUtil setAppropriateStatusBarStyleWithShouldCheck:YES];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -81,12 +100,12 @@
         if (self.inspectionDidFinish) {
             [self.timer invalidate];
             Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
-            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
+            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIMES_KEY]];
             if (!timesInMemory) {
                 timesInMemory = [[NSMutableArray alloc] init];
             }
             [timesInMemory insertObject:[Time convertToArray:time] atIndex:0];
-            [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+            [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self generateScramble];
