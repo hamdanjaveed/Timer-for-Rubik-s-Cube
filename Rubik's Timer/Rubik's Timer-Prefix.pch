@@ -24,6 +24,7 @@
 
 #define USER_SETTINGS [[NSUserDefaults standardUserDefaults] objectForKey:SETTINGS_KEY]
 #define USER_TIMES [[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]
+#define SYNCHRONIZE_SETTINGS [[NSUserDefaults standardUserDefaults] synchronize]
 
 #define FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR 0.65f
 #endif

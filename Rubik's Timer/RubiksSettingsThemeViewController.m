@@ -61,7 +61,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [settings setObject:foreground forKey:THEME_FOREGROUND_KEY];
 
     [[NSUserDefaults standardUserDefaults] setObject:settings forKey:SETTINGS_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    SYNCHRONIZE_SETTINGS;
     
     [self resetSelectedIndexPath];
     [self.tableView reloadData];

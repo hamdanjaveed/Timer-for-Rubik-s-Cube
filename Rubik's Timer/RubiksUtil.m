@@ -98,4 +98,19 @@
     }
 }
 
++ (NSString *)pluralizeStringWithSingularForm:(NSString *)singular
+                                     zeroForm:(NSString *)zeroForm
+                                 andParameter:(int)parameter {
+    
+    NSString *pluralOrSingular = (parameter == 1) ? [@"%d " stringByAppendingString:singular] : [[@"%d " stringByAppendingString:singular] stringByAppendingString:@"s"];
+    NSString *finalString;
+    if (parameter == 0) {
+        finalString = zeroForm;
+    } else {
+        finalString = [NSString stringWithFormat:pluralOrSingular, parameter];
+    }
+    
+    return finalString;
+}
+
 @end
