@@ -18,15 +18,17 @@
     [super viewDidLoad];
 }
 
-#define ORANGE_WHITE 0
 -       (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *currentTheme = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"theme"];
+    [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+
+    NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
+    [settings setObject:[tableView cellForRowAtIndexPath:indexPath].textLabel.text forKey:THEME_BACKGROUND_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:SETTINGS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *currentTheme = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
     NSLog(@"%@", currentTheme);
-    if (indexPath.row == ORANGE_WHITE) {
-        [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }
 }
 
 @end

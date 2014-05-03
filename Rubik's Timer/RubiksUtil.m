@@ -51,7 +51,7 @@
 }
 
 + (NSString *)getEmailMessageBody {
-    NSArray *timeObjects = [[NSUserDefaults standardUserDefaults] objectForKey:@"times"];
+    NSArray *timeObjects = USER_TIMES;
     NSMutableArray *times = [[NSMutableArray alloc] init];
     for (NSArray *timeArray in timeObjects) {
         [times addObject:[NSNumber numberWithDouble:[Time getTimeFromArray:timeArray]]];
@@ -59,14 +59,23 @@
     return [times componentsJoinedByString:@"\n"];
 }
 
-+ (UIColor *)getCurrentColor {
-    NSString *currentColor = [[NSUserDefaults standardUserDefaults] objectForKey:@"current color"];
-    if ([currentColor isEqualToString:@"Blue"]) {
-        return [UIColor blueColor];
-    } else if ([currentColor isEqualToString:@"Green"]) {
++ (UIColor *)getThemeBackground {
+    NSString *background = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
+    if ([background isEqualToString:@"Black"]) {
+        return [UIColor blackColor];
+    } else if ([background isEqualToString:@"Green"]) {
         return [UIColor greenColor];
     } else {
         return [UIColor orangeColor];
+    }
+}
+
++ (UIColor *)getThemeForeground {
+    NSString *foreground = [USER_SETTINGS objectForKey:THEME_FOREGROUND_KEY];
+    if ([foreground isEqualToString:@"Black"]) {
+        return [UIColor blackColor];
+    } else {
+        return [UIColor whiteColor];
     }
 }
 

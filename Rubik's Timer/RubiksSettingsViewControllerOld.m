@@ -16,7 +16,7 @@
 @implementation RubiksSettingsViewControllerOld
 
 - (void)viewDidLoad {
-    int value = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    int value = [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue];
     self.inspectionTimeLabel.text = [NSString stringWithFormat:@"Inspection Time: %d seconds", value];
     self.inspectionSlider.value = value;
 }
@@ -26,9 +26,9 @@
     self.inspectionTimeLabel.text = [NSString stringWithFormat:@"Inspection Time: %d seconds", value];
     [sender setValue:value];
     
-    NSMutableDictionary *settings = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] mutableCopy];
-    [settings setObject:[NSNumber numberWithInt:value] forKey:@"inspection time"];
-    [[NSUserDefaults standardUserDefaults] setObject:[settings copy] forKey:@"settings"];
+    NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
+    [settings setObject:[NSNumber numberWithInt:value] forKey:INSPECTION_TIME_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[settings copy] forKey:SETTINGS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -40,7 +40,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"times"];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIME_ARRAY_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }

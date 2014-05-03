@@ -24,7 +24,7 @@
         
         UITableViewCell *themeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         themeCell.textLabel.text = @"Theme";
-        themeCell.detailTextLabel.text = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"theme"];
+        themeCell.detailTextLabel.text = [USER_SETTINGS objectForKey:THEME_BACKGROUND_KEY];
         themeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         UITableViewCell *deleteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -80,7 +80,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"times"];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIME_ARRAY_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }

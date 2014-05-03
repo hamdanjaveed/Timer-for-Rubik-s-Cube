@@ -13,10 +13,12 @@
 /*
  NSUserDefaults Structure:
  -------------------------
- 
+
+ > times
  > settings
     - inspection time
-    - theme
+    - theme background
+    - theme foreground
  */
 
 @interface RubiksTimeViewController ()
@@ -49,24 +51,24 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
-    NSDictionary *settings = [ud objectForKey:@"settings"];
+    NSDictionary *settings = [ud objectForKey:SETTINGS_KEY];
     if (!settings) {
-        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", @"Orange", @"theme", nil];
-        [ud setObject:settings forKey:@"settings"];
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], INSPECTION_TIME_KEY, @"Orange", THEME_BACKGROUND_KEY, @"Black", THEME_FOREGROUND_KEY, nil];
+        [ud setObject:settings forKey:SETTINGS_KEY];
         [ud synchronize];
     }
 
-    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    self.startingInspectionTime = [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.view.backgroundColor = [RubiksUtil getCurrentColor];
+    self.view.backgroundColor = [RubiksUtil getThemeBackground];
+    // TODO: foreground
 }
 
-#define TIME_ARRAY_KEY @"times"
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    self.startingInspectionTime = [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue];
     
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
