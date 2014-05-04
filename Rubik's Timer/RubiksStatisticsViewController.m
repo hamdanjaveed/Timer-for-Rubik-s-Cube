@@ -7,10 +7,10 @@
 //
 
 #import "RubiksStatisticsViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 
 @interface RubiksStatisticsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfSolvesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageLabel;
@@ -30,11 +30,24 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.titleLabel setTextColor:foreground];
+    UIColor *foregroundLight = [RubiksUtil reduceAlphaOfColor:foreground
+                                                  byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR];
+    [self.numberOfSolvesLabel setTextColor:foregroundLight];
+    [self.bestLabel setTextColor:foregroundLight];
+    [self.average10Label setTextColor:foregroundLight];
+    [self.average5Label setTextColor:foregroundLight];
+    [self.averageLabel setTextColor:foregroundLight];
+    [self.worstLabel setTextColor:foregroundLight];
+    
     [self updateStatistics];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)updateStatistics {
-    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:@"times"];
+    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:TIMES_KEY];
     if ([self.times count]) {
         [self updateNumberOfSolves];
         [self updateBest];
@@ -61,7 +74,7 @@
 }
 
 - (void)updateNumberOfSolves {
-    int count = [[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
+    int count = (int)[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
     self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", count];
 }
 
@@ -82,9 +95,9 @@
 }
 
 - (void)updateAverageOf5 {
-    NSUInteger numberOfSolves = [self.times count];
+    int numberOfSolves = (int)[self.times count];
     if (numberOfSolves < 5) {
-        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: Need %u more solve%@", 5 - numberOfSolves, (5 - numberOfSolves == 1) ? @"" : @"s"];
+        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: Need %d more solve%@", 5 - numberOfSolves, (5 - numberOfSolves == 1) ? @"" : @"s"];
     } else {
         double sum = [Time getTimeFromArray:[self.times firstObject]];
         for (int i = 1; i < 5; i++) {
@@ -95,9 +108,9 @@
 }
 
 - (void)updateAverageOf10 {
-    NSUInteger numberOfSolves = [self.times count];
+    int numberOfSolves = (int)[self.times count];
     if (numberOfSolves < 10) {
-        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: Need %u more solve%@", 10 - numberOfSolves, (10 - numberOfSolves == 1) ? @"" : @"s"];
+        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: Need %d more solve%@", 10 - numberOfSolves, (10 - numberOfSolves == 1) ? @"" : @"s"];
     } else {
         double sum = [Time getTimeFromArray:[self.times firstObject]];
         for (int i = 1; i < 10; i++) {

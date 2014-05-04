@@ -8,7 +8,6 @@
 
 #import <MessageUI/MessageUI.h>
 #import "RubiksViewTimeViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 #import "RubiksIndividualTimeViewController.h"
 
@@ -21,6 +20,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)viewDidLoad {
@@ -35,15 +36,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[NSUserDefaults standardUserDefaults] arrayForKey:@"times"] count];
+    return [USER_TIMES count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Time Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSArray *times = [[NSUserDefaults standardUserDefaults] arrayForKey:@"times"];
-    [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[times objectAtIndex:indexPath.row]]]];
+    [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
     
     return cell;
 }
@@ -64,9 +64,9 @@
         
         if (indexPath) {
             // Delete the row from the data source
-            NSMutableArray *times = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"times"]];
+            NSMutableArray *times = [NSMutableArray arrayWithArray:USER_TIMES];
             [times removeObjectAtIndex:indexPath.row];
-            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:@"times"];
+            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
@@ -81,7 +81,7 @@
     
     // the time selected
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Time *time = [Time getFromArray:[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] objectAtIndex:indexPath.row]];
+    Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
     
     destinationVC.time = time.time;
     destinationVC.date = time.date;

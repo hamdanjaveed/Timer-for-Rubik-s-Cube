@@ -7,7 +7,6 @@
 //
 
 #import "RubiksIndividualTimeViewController.h"
-#import "RubiksUtil.h"
 
 @interface RubiksIndividualTimeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -16,6 +15,19 @@
 @end
 
 @implementation RubiksIndividualTimeViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [RubiksUtil setAppropriateStatusBarStyle];
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.timeLabel setTextColor:foreground];
+    UIColor *foregroundLight = [RubiksUtil reduceAlphaOfColor:foreground
+                                                  byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR];
+    [self.dateLabel setTextColor:foregroundLight];
+    [self.scrambleLabel setTextColor:foregroundLight];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

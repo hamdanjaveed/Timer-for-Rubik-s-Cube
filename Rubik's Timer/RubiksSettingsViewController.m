@@ -7,99 +7,79 @@
 //
 
 #import "RubiksSettingsViewController.h"
-#import "RubiksSettingsThemeViewController.h"
 
 @interface RubiksSettingsViewController () <UIAlertViewDelegate>
-@property (strong, nonatomic) NSArray *sectionHeaders;
-@property (strong, nonatomic) NSArray *tableCells;
+@property (weak, nonatomic) IBOutlet UILabel *inspectionTimeLabel;
+@property (weak, nonatomic) IBOutlet UISlider *inspectionTimeSlider;
+@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @end
 
 @implementation RubiksSettingsViewController
-
-- (NSArray *)tableCells {
-    if (!_tableCells) {
-        UITableViewCell *inspectionCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        inspectionCell.textLabel.text = @"Inspection Time";
-        inspectionCell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds", [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue]];
-        
-        UITableViewCell *themeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        themeCell.textLabel.text = @"Theme";
-        themeCell.detailTextLabel.text = [[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"theme"];
-        themeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        UITableViewCell *deleteCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        deleteCell.textLabel.text = @"Delete all Times";
-        deleteCell.textLabel.textAlignment = NSTextAlignmentCenter;
-        deleteCell.textLabel.textColor = [UIColor redColor];
-        
-        _tableCells = @[@[inspectionCell], @[themeCell], @[deleteCell]];
-    }
-    return _tableCells;
-}
-
-- (NSArray *)sectionHeaders {
-    if (!_sectionHeaders) {
-        _sectionHeaders = @[@"Timer", @"General", @"Data"];
-    }
-    return _sectionHeaders;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.sectionHeaders count];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setData];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-    return [self.tableCells[section] count];
+- (void)setData {
+    [self.inspectionTimeLabel setText:[RubiksUtil pluralizeStringWithSingularForm:@"second"
+                                                                         zeroForm:@"No inspection time"
+                                                                     andParameter:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue]]];
+    [self.inspectionTimeSlider setValue:[[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] floatValue]];
+    [self.inspectionTimeSlider setMinimumTrackTintColor:[RubiksUtil getThemeBackground]];
+    
+    [self.themeLabel setText:[[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_BACKGROUND_STRING_KEY]];
+    [self.themeLabel setTextColor:[RubiksUtil getThemeBackground]];
+    
+    [self.versionLabel setText:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    [self.versionLabel setTextColor:[RubiksUtil getThemeBackground]];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 -       (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
-    } else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            [self performSegueWithIdentifier:@"theme segue" sender:nil];
-        }
-    } else if (indexPath.section == 2) {
+    if (indexPath.section == 3) {
         if (indexPath.row == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete all times" message:@"Are you sure you want to delete all your times?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
             [alert show];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"times"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIMES_KEY];
+        SYNCHRONIZE_SETTINGS;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.tableCells[indexPath.section][indexPath.row];
-}
-
-- (int)getCurrectCell:(NSIndexPath *)indexPath {
-    int sum = 0;
-    for (int i = 0; i < indexPath.section; i++) {
-        sum += [self.tableCells[i] count];
-    }
-    sum += indexPath.row;
-    return sum;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.sectionHeaders[section];
+- (IBAction)inspectionTimerDidChange:(id)sender {
+    UISlider *slider = (UISlider *)sender;
+    [slider setValue:round(slider.value) animated:NO];
+    int time = (int) slider.value;
+    [self.inspectionTimeLabel setText:[RubiksUtil pluralizeStringWithSingularForm:@"second"
+                                                                         zeroForm:@"No inspection time"
+                                                                     andParameter:time]];
+    
+    NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
+    [settings setObject:[NSNumber numberWithInt:time] forKey:INSPECTION_TIME_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[settings copy] forKey:SETTINGS_KEY];
+    SYNCHRONIZE_SETTINGS;
 }
 
 @end

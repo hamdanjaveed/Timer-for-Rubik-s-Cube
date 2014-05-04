@@ -13,6 +13,16 @@
 + (NSString *)generateScramble;
 + (NSString *)formatTime:(double)seconds;
 + (NSString *)getEmailMessageBody;
-+ (UIColor *)getCurrentColor;
++ (UIColor *)getThemeBackground;
++ (UIColor *)getThemeForeground;
++ (UIColor *)getThemeTint;
++ (UIColor *)reduceAlphaOfColor:(UIColor *)color
+                    byAFactorOf:(float)factor;
++ (void)setAppropriateStatusBarStyle;
++ (NSString *)pluralizeStringWithSingularForm:(NSString *)singular
+                                     zeroForm:(NSString *)zeroForm
+                                 andParameter:(int)parameter;
++ (BOOL)checkSettingsForCorrectness:(NSDictionary *)settings;
++ (void)buildFiles;
 
 @end
