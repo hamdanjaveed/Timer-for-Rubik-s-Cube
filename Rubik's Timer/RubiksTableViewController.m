@@ -18,10 +18,6 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.translucent = NO;
-    [self resetTintColor];
-}
-
-- (void)resetTintColor {
     self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
 }
 

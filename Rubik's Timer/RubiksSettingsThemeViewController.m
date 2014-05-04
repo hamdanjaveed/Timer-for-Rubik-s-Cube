@@ -10,6 +10,7 @@
 
 @interface RubiksSettingsThemeViewController ()
 @property (strong, nonatomic) NSIndexPath *selectedThemeIndexPath;
+@property (nonatomic) BOOL shouldAnimate;
 @end
 
 @implementation RubiksSettingsThemeViewController
@@ -23,8 +24,6 @@
     
     [self resetSelectedIndexPath];
     [RubiksUtil setAppropriateStatusBarStyle];
-    
-    NSLog(@"selected index is: %d", self.selectedThemeIndexPath.row);
 }
 
 - (void)resetSelectedIndexPath {
@@ -46,7 +45,6 @@
     [cell.detailTextLabel setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]]];
     
     if (self.selectedThemeIndexPath.row == indexPath.row) {
-        NSLog(@"got the thing with the thing at the row: %d", indexPath.row);
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         cell.tintColor = [NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]];
     } else {
@@ -70,7 +68,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self resetSelectedIndexPath];
     [self.tableView reloadData];
-    [self resetTintColor];
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
+    } completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
