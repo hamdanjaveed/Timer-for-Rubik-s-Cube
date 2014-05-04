@@ -12,7 +12,8 @@
 #import "RubiksIndividualTimeViewController.h"
 
 @interface RubiksViewTimeViewController () <MFMailComposeViewControllerDelegate>
-
+@property (nonatomic) int bestRow;
+@property (nonatomic) int worstRow;
 @end
 
 @implementation RubiksViewTimeViewController
@@ -32,25 +33,79 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [USER_TIMES count];
+    if (section == 0) {
+        return 2;
+    } else {
+        return [USER_TIMES count];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
+    return @[@"Records", @"All"][section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Time Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *BestCellIdentifier = @"Best Time Cell";
+    static NSString *WorstCellIdentifier = @"Worst Time Cell";
+    static NSString *BestAllCellIdentifier = @"Best Time Cell All";
+    static NSString *WorstAllCellIdentifier = @"Worst Time Cell All";
     
-    [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
+    UITableViewCell *cell;
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:BestCellIdentifier forIndexPath:indexPath];
+        } else if (indexPath.row == 1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:WorstCellIdentifier forIndexPath:indexPath];
+        }
+    } else {
+        double time = [Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
+        if ([Time isBest:time]) {
+            cell = [tableView dequeueReusableCellWithIdentifier:BestAllCellIdentifier forIndexPath:indexPath];
+        } else if ([Time isWorst:time]) {
+            cell = [tableView dequeueReusableCellWithIdentifier:WorstAllCellIdentifier forIndexPath:indexPath];
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        }
+    }
+    
+    if (indexPath.section == 0) {
+        int index = 0;
+        if (indexPath.row == 0) {
+            // best
+            double min = [Time getTimeFromArray:[USER_TIMES firstObject]];
+            for (int i = 1; i < [USER_TIMES count]; i++) {
+                index = (min > [Time getTimeFromArray:USER_TIMES[i]]) ? i : index;
+                min = MIN(min, [Time getTimeFromArray:USER_TIMES[i]]);
+            }
+            self.bestRow = index;
+            [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+        } else {
+            // worst
+            double max = [Time getTimeFromArray:[USER_TIMES firstObject]];
+            for (int i = 1; i < [USER_TIMES count]; i++) {
+                index = (max < [Time getTimeFromArray:USER_TIMES[i]]) ? i : index;
+                max = MAX(max, [Time getTimeFromArray:USER_TIMES[i]]);
+            }
+            self.worstRow = index;
+            [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+        }
+    } else {
+        [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
+    }
     
     return cell;
 }
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return indexPath.section != 0;
 }
 
 // Override to support editing the table view.
@@ -69,6 +124,8 @@
             [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+            [tableView reloadData];
         }
     }
 }
@@ -81,7 +138,17 @@
     
     // the time selected
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
+    int index = indexPath.row;
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            index = self.bestRow;
+        } else if (indexPath.row == 1) {
+            index = self.worstRow;
+        }
+    }
+    
+    Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:index]];
     
     destinationVC.time = time.time;
     destinationVC.date = time.date;
