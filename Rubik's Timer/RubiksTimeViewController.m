@@ -22,7 +22,8 @@
         - foreground color: UIColor
         - background string: NSString
         - foreground string: NSString
-        - type: NSString
+        - status bar style: NSString
+        - tint: UIColor
  
  > files (NSDictionary)
     - themes: NSArray
@@ -31,7 +32,8 @@
             - foreground color: UIColor
             - background string: NSString
             - foreground string: NSString
-            - type: NSString
+            - status bar style: NSString
+            - tint: UIColor
  */
 
 @interface RubiksTimeViewController ()

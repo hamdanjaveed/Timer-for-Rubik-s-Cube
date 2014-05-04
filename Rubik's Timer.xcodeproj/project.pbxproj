@@ -111,6 +111,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA8943481915D27C0022DB29 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				EA5C0B3A19149AE500850DCC /* RubiksAdhereToThemeViewController.h */,
+				EA5C0B3B19149AE500850DCC /* RubiksAdhereToThemeViewController.m */,
+				EAD7B9C71915A26C0080D662 /* RubiksViewController.h */,
+				EAD7B9C81915A26C0080D662 /* RubiksViewController.m */,
+				EAD7B9CA1915A3660080D662 /* RubiksTableViewController.h */,
+				EAD7B9CB1915A3660080D662 /* RubiksTableViewController.m */,
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
 		EAD65FBB185E740800B1A9D3 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +163,7 @@
 				EAD7B9CE1915A4AF0080D662 /* Statistics */,
 				EAD7B9CF1915A4C20080D662 /* My Times */,
 				EAD7B9D01915A4D30080D662 /* Util */,
+				EA8943481915D27C0022DB29 /* Templates */,
 				EAD7B9D11915A4E50080D662 /* Settings */,
 				EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.h */,
 				EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */,
@@ -226,12 +240,6 @@
 			children = (
 				EA7EC7EF186BDD9800872953 /* RubiksUtil.h */,
 				EA7EC7F0186BDD9800872953 /* RubiksUtil.m */,
-				EA5C0B3A19149AE500850DCC /* RubiksAdhereToThemeViewController.h */,
-				EA5C0B3B19149AE500850DCC /* RubiksAdhereToThemeViewController.m */,
-				EAD7B9C71915A26C0080D662 /* RubiksViewController.h */,
-				EAD7B9C81915A26C0080D662 /* RubiksViewController.m */,
-				EAD7B9CA1915A3660080D662 /* RubiksTableViewController.h */,
-				EAD7B9CB1915A3660080D662 /* RubiksTableViewController.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";

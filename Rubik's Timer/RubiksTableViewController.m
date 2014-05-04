@@ -19,6 +19,8 @@
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
+    self.navigationController.navigationBar.tintColor = [RubiksUtil getThemeTint];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 @end

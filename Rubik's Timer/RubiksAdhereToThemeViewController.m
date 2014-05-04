@@ -16,8 +16,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.view.backgroundColor = [RubiksUtil getThemeBackground];
-    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 @end

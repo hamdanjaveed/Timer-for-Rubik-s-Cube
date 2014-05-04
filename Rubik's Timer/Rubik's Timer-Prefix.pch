@@ -24,7 +24,8 @@
 #define THEME_FOREGROUND_COLOR_KEY @"theme foreground color"
 #define THEME_BACKGROUND_STRING_KEY @"theme background string"
 #define THEME_FOREGROUND_STRING_KEY @"theme foreground string"
-#define THEME_TYPE_KEY @"theme type"
+#define THEME_STATUS_BAR_STYLE_KEY @"theme status bar style"
+#define THEME_TINT_KEY @"theme tint key"
 
 #define TIMES_KEY @"times"
 

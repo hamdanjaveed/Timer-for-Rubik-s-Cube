@@ -67,6 +67,10 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:[[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_FOREGROUND_COLOR_KEY]];
 }
 
++ (UIColor *)getThemeTint {
+    return [NSKeyedUnarchiver unarchiveObjectWithData:[[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_TINT_KEY]];
+}
+
 + (UIColor *)reduceAlphaOfColor:(UIColor *)color
                     byAFactorOf:(float)factor {
     
@@ -76,8 +80,8 @@
 }
 
 + (void)setAppropriateStatusBarStyle {
-    NSString *themeType = [[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_TYPE_KEY];
-    if ([themeType isEqualToString:@"Light"]) {
+    NSString *themeStatusBarStyle = [[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_STATUS_BAR_STYLE_KEY];
+    if ([themeStatusBarStyle isEqualToString:@"Black"]) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     } else {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -108,8 +112,8 @@
         id foregroundColor = [theme objectForKey:THEME_FOREGROUND_COLOR_KEY];
         id backgroundString = [theme objectForKey:THEME_BACKGROUND_STRING_KEY];
         id foregroundString = [theme objectForKey:THEME_FOREGROUND_STRING_KEY];
-        id themeType = [theme objectForKey:THEME_TYPE_KEY];
-        if (backgroundColor && foregroundColor && backgroundString && foregroundString && themeType) {
+        id themeStatusBarStyle = [theme objectForKey:THEME_STATUS_BAR_STYLE_KEY];
+        if (backgroundColor && foregroundColor && backgroundString && foregroundString && themeStatusBarStyle) {
             return true;
         }
     }
@@ -120,49 +124,83 @@
 + (void)buildFiles {
     NSDictionary *orangeWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.99 green:0.48 blue:0.03 alpha:1]],
                                                                       [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.16 green:0.36 blue:0.64 alpha:1]],
                                                                       @"Orange",
                                                                       @"White",
-                                                                      @"Dark"]
+                                                                      @"Black"]
                                                             forKeys:@[THEME_BACKGROUND_COLOR_KEY,
                                                                       THEME_FOREGROUND_COLOR_KEY,
+                                                                      THEME_TINT_KEY,
                                                                       THEME_BACKGROUND_STRING_KEY,
                                                                       THEME_FOREGROUND_STRING_KEY,
-                                                                      THEME_TYPE_KEY]];
+                                                                      THEME_STATUS_BAR_STYLE_KEY]];
     
     NSDictionary *lightBlueWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.38 green:0.706 blue:0.812 alpha:1]],
-                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
-                                                                      @"Light Blue",
-                                                                      @"White",
-                                                                      @"Dark"]
-                                                            forKeys:@[THEME_BACKGROUND_COLOR_KEY,
-                                                                      THEME_FOREGROUND_COLOR_KEY,
-                                                                      THEME_BACKGROUND_STRING_KEY,
-                                                                      THEME_FOREGROUND_STRING_KEY,
-                                                                      THEME_TYPE_KEY]];
+                                                                         [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                         [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.761 green:0.361 blue:0.231 alpha:1]],
+                                                                         @"Light Blue",
+                                                                         @"White",
+                                                                         @"Black"]
+                                                               forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                         THEME_FOREGROUND_COLOR_KEY,
+                                                                         THEME_TINT_KEY,
+                                                                         THEME_BACKGROUND_STRING_KEY,
+                                                                         THEME_FOREGROUND_STRING_KEY,
+                                                                         THEME_STATUS_BAR_STYLE_KEY]];
     
     NSDictionary *darkBlueWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.208 green:0.569 blue:0.682 alpha:1]],
                                                                         [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                        [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.682 green:0.322 blue:0.208 alpha:1]],
                                                                         @"Dark Blue",
                                                                         @"White",
-                                                                        @"Dark"]
-                                                          forKeys:@[THEME_BACKGROUND_COLOR_KEY,
-                                                                    THEME_FOREGROUND_COLOR_KEY,
-                                                                    THEME_BACKGROUND_STRING_KEY,
-                                                                    THEME_FOREGROUND_STRING_KEY,
-                                                                    THEME_TYPE_KEY]];
+                                                                        @"White"]
+                                                              forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                        THEME_FOREGROUND_COLOR_KEY,
+                                                                        THEME_TINT_KEY,
+                                                                        THEME_BACKGROUND_STRING_KEY,
+                                                                        THEME_FOREGROUND_STRING_KEY,
+                                                                        THEME_STATUS_BAR_STYLE_KEY]];
     
     NSDictionary *lightGreenWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.38 green:0.812 blue:0.486 alpha:1]],
                                                                           [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                          [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.81 green:0.49 blue:0.38 alpha:1]],
                                                                           @"Light Green",
                                                                           @"White",
-                                                                          @"Dark"]
-                                                          forKeys:@[THEME_BACKGROUND_COLOR_KEY,
-                                                                    THEME_FOREGROUND_COLOR_KEY,
-                                                                    THEME_BACKGROUND_STRING_KEY,
-                                                                    THEME_FOREGROUND_STRING_KEY,
-                                                                    THEME_TYPE_KEY]];
+                                                                          @"Black"]
+                                                                forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                          THEME_FOREGROUND_COLOR_KEY,
+                                                                          THEME_TINT_KEY,
+                                                                          THEME_BACKGROUND_STRING_KEY,
+                                                                          THEME_FOREGROUND_STRING_KEY,
+                                                                          THEME_STATUS_BAR_STYLE_KEY]];
     
-    NSArray *themes = [NSArray arrayWithObjects:orangeWhite, lightBlueWhite, darkBlueWhite, lightGreenWhite, nil];
+    NSDictionary *purpleWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.537 green:0.259 blue:0.839 alpha:1]],
+                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.56 green:0.84 blue:0.26 alpha:1]],
+                                                                      @"Purple",
+                                                                      @"White",
+                                                                      @"White"]
+                                                            forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                      THEME_FOREGROUND_COLOR_KEY,
+                                                                      THEME_TINT_KEY,
+                                                                      THEME_BACKGROUND_STRING_KEY,
+                                                                      THEME_FOREGROUND_STRING_KEY,
+                                                                      THEME_STATUS_BAR_STYLE_KEY]];
+    
+    NSDictionary *blackWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1]],
+                                                                     [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                     [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.99 green:0.48 blue:0.03 alpha:1]],
+                                                                     @"Black",
+                                                                     @"White",
+                                                                     @"White"]
+                                                           forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                     THEME_FOREGROUND_COLOR_KEY,
+                                                                     THEME_TINT_KEY,
+                                                                     THEME_BACKGROUND_STRING_KEY,
+                                                                     THEME_FOREGROUND_STRING_KEY,
+                                                                     THEME_STATUS_BAR_STYLE_KEY]];
+    
+    NSArray *themes = [NSArray arrayWithObjects:orangeWhite, lightBlueWhite, darkBlueWhite, lightGreenWhite, purpleWhite, blackWhite, nil];
     NSDictionary *files = [NSDictionary dictionaryWithObject:themes forKey:FILES_THEMES_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:files forKey:FILES_KEY];
     SYNCHRONIZE_SETTINGS;

@@ -71,6 +71,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [UIView animateWithDuration:0.5f animations:^{
         self.navigationController.navigationBar.barTintColor = [RubiksUtil getThemeBackground];
+        self.navigationController.navigationBar.tintColor = [RubiksUtil getThemeTint];
+        [RubiksUtil setAppropriateStatusBarStyle];
     } completion:nil];
 }
 
