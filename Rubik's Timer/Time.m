@@ -43,4 +43,20 @@
     return [array[TIME_INDEX] doubleValue];
 }
 
++ (BOOL)isBest:(double)time {
+    double min = [Time getTimeFromArray:[USER_TIMES firstObject]];
+    for (int i = 1; i < [USER_TIMES count]; i++) {
+        min = MIN(min, [Time getTimeFromArray:USER_TIMES[i]]);
+    }
+    return time == min;
+}
+
++ (BOOL)isWorst:(double)time {
+    double max = [self getTimeFromArray:[USER_TIMES firstObject]];
+    for (int i = 1; i < [USER_TIMES count]; i++) {
+        max = MAX(max, [self getTimeFromArray:USER_TIMES[i]]);
+    }
+    return time == max;
+}
+
 @end

@@ -21,4 +21,7 @@
 
 + (NSTimeInterval)getTimeFromArray:(NSArray *)array;
 
++ (BOOL)isBest:(double)time;
++ (BOOL)isWorst:(double)time;
+
 @end
