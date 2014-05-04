@@ -138,7 +138,7 @@ titleForHeaderInSection:(NSInteger)section {
     
     // the time selected
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    int index = indexPath.row;
+    int index = (int)indexPath.row;
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
