@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Hamdan Javeed. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
 #import "RubiksSettingsViewController.h"
 
-@interface RubiksSettingsViewController () <UIAlertViewDelegate>
+@interface RubiksSettingsViewController () <UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *inspectionTimeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *inspectionTimeSlider;
 @property (weak, nonatomic) IBOutlet UILabel *themeLabel;
@@ -53,11 +54,40 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         if (indexPath.row == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete all times" message:@"Are you sure you want to delete all your times?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
             [alert show];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
-    } else {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else if (indexPath.section == 2) {
+        MFMailComposeViewController *emailVC = [[MFMailComposeViewController alloc] init];
+        emailVC.mailComposeDelegate = self;
+        [emailVC setToRecipients:@[@"timerforrubikscube@gmail.com"]];
+        
+        switch (indexPath.row) {
+            // write a review
+            case 0:
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id783217916"]];
+                break;
+            
+            // request a feature
+            case 1:
+                [emailVC setSubject:@"Feature request for Timer for Rubik's Cube"];
+                [emailVC setMessageBody:@"Request a feature that you really  want and I'll try to implement it as best and as quickly as I can :D\n-------------------------------------------\nRequest your feature here:\n" isHTML:NO];
+                [self presentViewController:emailVC animated:YES completion:nil];
+                break;
+
+            // send feedback
+            case 2:
+                [emailVC setSubject:@"Feedback for Timer for Rubik's Cube"];
+                [emailVC setMessageBody:@"Anything you like? Anything you don't like?\n-------------------------------------------\nWrite your feedback here:\n" isHTML:NO];
+                [self presentViewController:emailVC animated:YES completion:nil];
+                break;
+        }
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self becomeFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
