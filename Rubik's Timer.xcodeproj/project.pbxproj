@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */; };
-		EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */; };
 		EA4716B3186FEA7200BE12C0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4716B2186FEA7200BE12C0 /* Time.m */; };
 		EA476A4518AF339A00BF1AF6 /* RubiksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA476A4418AF339A00BF1AF6 /* RubiksSettingsViewController.m */; };
 		EA5C0B3C19149AE500850DCC /* RubiksAdhereToThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5C0B3B19149AE500850DCC /* RubiksAdhereToThemeViewController.m */; };
@@ -47,8 +46,6 @@
 		EA0A5BA4187D2CB600C17269 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EA0A61EB187FB53000A7FB38 /* RubiksIndividualTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksIndividualTimeViewController.h; sourceTree = "<group>"; };
 		EA0A61EC187FB53000A7FB38 /* RubiksIndividualTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksIndividualTimeViewController.m; sourceTree = "<group>"; };
-		EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewControllerOld.h; sourceTree = "<group>"; };
-		EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubiksSettingsViewControllerOld.m; sourceTree = "<group>"; };
 		EA4716B1186FEA7200BE12C0 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		EA4716B2186FEA7200BE12C0 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
 		EA476A4318AF339A00BF1AF6 /* RubiksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubiksSettingsViewController.h; sourceTree = "<group>"; };
@@ -165,8 +162,6 @@
 				EAD7B9D01915A4D30080D662 /* Util */,
 				EA8943481915D27C0022DB29 /* Templates */,
 				EAD7B9D11915A4E50080D662 /* Settings */,
-				EA0A61EE187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.h */,
-				EA0A61EF187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m */,
 				EAD65FE2185E740800B1A9D3 /* Images.xcassets */,
 				EAD65FCE185E740800B1A9D3 /* Supporting Files */,
 			);
@@ -390,7 +385,6 @@
 				EA4716B3186FEA7200BE12C0 /* Time.m in Sources */,
 				EA9608E618669B140082B283 /* RubiksViewTimeViewController.m in Sources */,
 				EAD66001185E77B200B1A9D3 /* RubiksTimeViewController.m in Sources */,
-				EA0A61F0187FBA3900A7FB38 /* RubiksSettingsViewControllerOld.m in Sources */,
 				EA0A61ED187FB53000A7FB38 /* RubiksIndividualTimeViewController.m in Sources */,
 				EA7EC7F1186BDD9800872953 /* RubiksUtil.m in Sources */,
 				EA476A4518AF339A00BF1AF6 /* RubiksSettingsViewController.m in Sources */,

@@ -62,19 +62,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         switch (indexPath.row) {
             // write a review
-            case 1:
+            case 0:
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id783217916"]];
                 break;
             
             // request a feature
-            case 2:
+            case 1:
                 [emailVC setSubject:@"Feature request for Timer for Rubik's Cube"];
                 [emailVC setMessageBody:@"Request a feature that you really  want and I'll try to implement it as best and as quickly as I can :D\n-------------------------------------------\nRequest your feature here:\n" isHTML:NO];
                 [self presentViewController:emailVC animated:YES completion:nil];
                 break;
 
             // send feedback
-            case 3:
+            case 2:
                 [emailVC setSubject:@"Feedback for Timer for Rubik's Cube"];
                 [emailVC setMessageBody:@"Anything you like? Anything you don't like?\n-------------------------------------------\nWrite your feedback here:\n" isHTML:NO];
                 [self presentViewController:emailVC animated:YES completion:nil];

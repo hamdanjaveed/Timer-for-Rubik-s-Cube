@@ -64,6 +64,10 @@ titleForHeaderInSection:(NSInteger)section {
         } else if (indexPath.row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:WorstCellIdentifier forIndexPath:indexPath];
         }
+        
+        if ([USER_TIMES count] == 0) {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     } else {
         double time = [Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
         if ([Time isBest:time]) {
@@ -84,8 +88,12 @@ titleForHeaderInSection:(NSInteger)section {
                 index = (min > [Time getTimeFromArray:USER_TIMES[i]]) ? i : index;
                 min = MIN(min, [Time getTimeFromArray:USER_TIMES[i]]);
             }
-            self.bestRow = index;
-            [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+            if (min) {
+                self.bestRow = index;
+                [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+            } else {
+                [[cell detailTextLabel] setText:@"N/A"];
+            }
         } else {
             // worst
             double max = [Time getTimeFromArray:[USER_TIMES firstObject]];
@@ -93,8 +101,12 @@ titleForHeaderInSection:(NSInteger)section {
                 index = (max < [Time getTimeFromArray:USER_TIMES[i]]) ? i : index;
                 max = MAX(max, [Time getTimeFromArray:USER_TIMES[i]]);
             }
-            self.worstRow = index;
-            [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+            if (max) {
+                self.worstRow = index;
+                [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
+            } else {
+                [[cell detailTextLabel] setText:@"N/A"];
+            }
         }
     } else {
         [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
@@ -133,26 +145,28 @@ titleForHeaderInSection:(NSInteger)section {
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // the destination vc
-    RubiksIndividualTimeViewController *destinationVC = [segue destinationViewController];
-    
-    // the time selected
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    int index = (int)indexPath.row;
-    
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            index = self.bestRow;
-        } else if (indexPath.row == 1) {
-            index = self.worstRow;
+    if ([USER_TIMES count]) {
+        // the destination vc
+        RubiksIndividualTimeViewController *destinationVC = [segue destinationViewController];
+        
+        // the time selected
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        int index = (int)indexPath.row;
+        
+        if (indexPath.section == 0) {
+            if (indexPath.row == 0) {
+                index = self.bestRow;
+            } else if (indexPath.row == 1) {
+                index = self.worstRow;
+            }
         }
+        
+        Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:index]];
+        
+        destinationVC.time = time.time;
+        destinationVC.date = time.date;
+        destinationVC.scramble = time.scramble;
     }
-    
-    Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:index]];
-    
-    destinationVC.time = time.time;
-    destinationVC.date = time.date;
-    destinationVC.scramble = time.scramble;
 }
 
 - (IBAction)email:(id)sender {
