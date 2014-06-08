@@ -175,9 +175,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="N8h-Tk-57F" kind="push" identifier="View Time Segue" id="DXo-IR-uMB"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Best Time Cell" textLabel="Qrn-Pd-Efv" detailTextLabel="Kip-GU-ppx" style="IBUITableViewCellStyleValue1" id="6lE-XO-hzN">
                                 <rect key="frame" x="0.0" y="163" width="320" height="44"/>
@@ -203,9 +200,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="1" green="0.90196084980000002" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <segue destination="N8h-Tk-57F" kind="push" identifier="View Best Time Segue" id="15G-EL-oMu"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Worst Time Cell" textLabel="7BF-3x-Jx6" detailTextLabel="d0n-Tq-tc2" style="IBUITableViewCellStyleValue1" id="VJG-oX-m0k">
                                 <rect key="frame" x="0.0" y="207" width="320" height="44"/>
@@ -231,9 +225,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="1" green="0.45490199329999997" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <segue destination="N8h-Tk-57F" kind="push" identifier="View Worst Time Segue" id="91r-Ov-sBt"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Best Time Cell All" textLabel="WFb-eY-JGI" style="IBUITableViewCellStyleDefault" id="kqs-Qb-Fb9">
                                 <rect key="frame" x="0.0" y="251" width="320" height="44"/>
@@ -252,9 +243,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="1" green="0.90196084980000002" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <segue destination="N8h-Tk-57F" kind="push" identifier="View Best All Time Segue" id="uMS-HO-Ft7"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Worst Time Cell All" textLabel="h1i-oM-uKU" style="IBUITableViewCellStyleDefault" id="5dt-UD-za7">
                                 <rect key="frame" x="0.0" y="295" width="320" height="44"/>
@@ -273,9 +261,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="1" green="0.45490199329999997" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <segue destination="N8h-Tk-57F" kind="push" identifier="View Worst All Time Segue" id="sY9-OH-Zgj"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -291,6 +276,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <segue destination="N8h-Tk-57F" kind="push" identifier="View Time Segue Global" id="tA0-xa-C2J"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZr-ai-0fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,7 +647,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="DXo-IR-uMB"/>
-    </inferredMetricsTieBreakers>
 </document>

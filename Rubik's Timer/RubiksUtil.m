@@ -124,7 +124,7 @@
 + (void)buildFiles {
     NSDictionary *orangeWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.99 green:0.48 blue:0.03 alpha:1]],
                                                                       [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
-                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.16 green:0.36 blue:0.64 alpha:1]],
+                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.38 green:0.72 blue:0.81 alpha:1]],
                                                                       @"Orange",
                                                                       @"White",
                                                                       @"Black"]
@@ -187,7 +187,7 @@
                                                                       THEME_FOREGROUND_STRING_KEY,
                                                                       THEME_STATUS_BAR_STYLE_KEY]];
     
-    NSDictionary *blackWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1]],
+    NSDictionary *blackWhite = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.23 green:0.23 blue:0.23 alpha:1]],
                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
                                                                      [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.99 green:0.48 blue:0.03 alpha:1]],
                                                                      @"Black",
@@ -200,7 +200,20 @@
                                                                      THEME_FOREGROUND_STRING_KEY,
                                                                      THEME_STATUS_BAR_STYLE_KEY]];
     
-    NSArray *themes = [NSArray arrayWithObjects:orangeWhite, lightBlueWhite, darkBlueWhite, lightGreenWhite, purpleWhite, blackWhite, nil];
+    NSDictionary *brownBlue = [NSDictionary dictionaryWithObjects:@[[NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.65 green:0.33 blue:0.00 alpha:1]],
+                                                                     [NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]],
+                                                                     [NSKeyedArchiver archivedDataWithRootObject:[UIColor colorWithRed:0.38 green:0.72 blue:0.81 alpha:1]],
+                                                                     @"Brown",
+                                                                     @"White",
+                                                                     @"Blue"]
+                                                           forKeys:@[THEME_BACKGROUND_COLOR_KEY,
+                                                                     THEME_FOREGROUND_COLOR_KEY,
+                                                                     THEME_TINT_KEY,
+                                                                     THEME_BACKGROUND_STRING_KEY,
+                                                                     THEME_FOREGROUND_STRING_KEY,
+                                                                     THEME_STATUS_BAR_STYLE_KEY]];
+    
+    NSArray *themes = [NSArray arrayWithObjects:orangeWhite, lightBlueWhite, darkBlueWhite, lightGreenWhite, purpleWhite, blackWhite, brownBlue, nil];
     NSDictionary *files = [NSDictionary dictionaryWithObject:themes forKey:FILES_THEMES_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:files forKey:FILES_KEY];
     SYNCHRONIZE_SETTINGS;

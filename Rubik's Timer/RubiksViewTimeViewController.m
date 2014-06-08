@@ -40,7 +40,7 @@
     if (section == 0) {
         return 2;
     } else {
-        return [USER_TIMES count];
+        return ([USER_TIMES count]) ? [USER_TIMES count] : 1;
     }
 }
 
@@ -64,18 +64,20 @@ titleForHeaderInSection:(NSInteger)section {
         } else if (indexPath.row == 1) {
             cell = [tableView dequeueReusableCellWithIdentifier:WorstCellIdentifier forIndexPath:indexPath];
         }
-        
-        if ([USER_TIMES count] == 0) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
     } else {
-        double time = [Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
-        if ([Time isBest:time]) {
-            cell = [tableView dequeueReusableCellWithIdentifier:BestAllCellIdentifier forIndexPath:indexPath];
-        } else if ([Time isWorst:time]) {
-            cell = [tableView dequeueReusableCellWithIdentifier:WorstAllCellIdentifier forIndexPath:indexPath];
-        } else {
+        if ([USER_TIMES count] == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        } else {
+            double time = [Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]];
+            if ([Time isBest:time]) {
+                cell = [tableView dequeueReusableCellWithIdentifier:BestAllCellIdentifier forIndexPath:indexPath];
+            } else if ([Time isWorst:time]) {
+                cell = [tableView dequeueReusableCellWithIdentifier:WorstAllCellIdentifier forIndexPath:indexPath];
+            } else {
+                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
     
@@ -109,15 +111,35 @@ titleForHeaderInSection:(NSInteger)section {
             }
         }
     } else {
-        [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
+        if ([USER_TIMES count] == 0) {
+            [[cell textLabel] setText:@"N/A"];
+        } else {
+            [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
+        }
     }
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([USER_TIMES count]) {
+        [self performSegueWithIdentifier:@"View Time Segue Global" sender:nil];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section != 0;
+    // if we're not in the records section
+    if (indexPath.section) {
+        // only edit if there are times available
+        return [USER_TIMES count];
+    }
+    
+    // don't allow editing of the records section
+    return false;
 }
 
 // Override to support editing the table view.
@@ -135,7 +157,10 @@ titleForHeaderInSection:(NSInteger)section {
             [times removeObjectAtIndex:indexPath.row];
             [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            
+            if ([USER_TIMES count]) {
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
             
             [tableView reloadData];
         }
@@ -145,28 +170,26 @@ titleForHeaderInSection:(NSInteger)section {
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([USER_TIMES count]) {
-        // the destination vc
-        RubiksIndividualTimeViewController *destinationVC = [segue destinationViewController];
-        
-        // the time selected
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        int index = (int)indexPath.row;
-        
-        if (indexPath.section == 0) {
-            if (indexPath.row == 0) {
-                index = self.bestRow;
-            } else if (indexPath.row == 1) {
-                index = self.worstRow;
-            }
+    // the destination vc
+    RubiksIndividualTimeViewController *destinationVC = [segue destinationViewController];
+    
+    // the time selected
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    int index = (int)indexPath.row;
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            index = self.bestRow;
+        } else if (indexPath.row == 1) {
+            index = self.worstRow;
         }
-        
-        Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:index]];
-        
-        destinationVC.time = time.time;
-        destinationVC.date = time.date;
-        destinationVC.scramble = time.scramble;
     }
+        
+    Time *time = [Time getFromArray:[USER_TIMES objectAtIndex:index]];
+    
+    destinationVC.time = time.time;
+    destinationVC.date = time.date;
+    destinationVC.scramble = time.scramble;
 }
 
 - (IBAction)email:(id)sender {
