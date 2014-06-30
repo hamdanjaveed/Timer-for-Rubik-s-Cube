@@ -94,7 +94,7 @@ titleForHeaderInSection:(NSInteger)section {
                 self.bestRow = index;
                 [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
             } else {
-                [[cell detailTextLabel] setText:@"N/A"];
+                [[cell detailTextLabel] setText:@"No Times"];
             }
         } else {
             // worst
@@ -107,12 +107,12 @@ titleForHeaderInSection:(NSInteger)section {
                 self.worstRow = index;
                 [[cell detailTextLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:USER_TIMES[index]]]];
             } else {
-                [[cell detailTextLabel] setText:@"N/A"];
+                [[cell detailTextLabel] setText:@"No Times"];
             }
         }
     } else {
         if ([USER_TIMES count] == 0) {
-            [[cell textLabel] setText:@"N/A"];
+            [[cell textLabel] setText:@"No Times"];
         } else {
             [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
         }

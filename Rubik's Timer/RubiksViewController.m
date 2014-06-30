@@ -17,7 +17,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // need to add a view up top that's slightly different in color
     self.view.backgroundColor = [RubiksUtil getThemeBackground];
     [RubiksUtil setAppropriateStatusBarStyle];
 }
