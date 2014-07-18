@@ -123,7 +123,7 @@ titleForHeaderInSection:(NSInteger)section {
         }
     } else {
         if ([USER_TIMES count] == 0) {
-            [[cell textLabel] setText:@"No Times"];
+            [[cell textLabel] setText:@"No recorded solves"];
         } else {
             [[cell textLabel] setText:[RubiksUtil formatTime:[Time getTimeFromArray:[USER_TIMES objectAtIndex:indexPath.row]]]];
         }
