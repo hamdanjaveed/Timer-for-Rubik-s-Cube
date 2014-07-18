@@ -14,19 +14,30 @@
 @interface RubiksViewTimeViewController () <MFMailComposeViewControllerDelegate>
 @property (nonatomic) int bestRow;
 @property (nonatomic) int worstRow;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *emailBarButtonItem;
 @end
 
 @implementation RubiksViewTimeViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setBarButtonItemStatus];
     [self.tableView reloadData];
-    
-    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
 - (void)viewDidLoad {
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setBarButtonItemStatus];
+}
+
+- (void)setBarButtonItemStatus {
+    if ([USER_TIMES count] == 0) {
+        [self setEditing:NO animated:NO];
+        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = nil;
+    } else {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        self.navigationItem.leftBarButtonItem = self.emailBarButtonItem;
+    }
 }
 
 #pragma mark - Table view data source
@@ -145,12 +156,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        /*
-         * BUG: tap delete on last item fast, will crash on 2nd line
-         * RESOLVE: (if)->check for indexpath
-         */
-        
         if (indexPath) {
             // Delete the row from the data source
             NSMutableArray *times = [NSMutableArray arrayWithArray:USER_TIMES];
@@ -160,6 +165,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             
             if ([USER_TIMES count]) {
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            } else {
+                [self setBarButtonItemStatus];
             }
             
             [tableView reloadData];
