@@ -80,6 +80,15 @@
 }
 
 + (void)setAppropriateStatusBarStyle {
+    /* TODO: Eventually want to use this to set status bar
+     float a = 1 - (0.299 * red + 0.587 * green + 0.114 * blue);
+     if (a < 0.5) {
+     // black
+     } else {
+     // white
+     }
+     */
+
     NSString *themeStatusBarStyle = [[USER_SETTINGS objectForKey:THEME_KEY] objectForKey:THEME_STATUS_BAR_STYLE_KEY];
     if ([themeStatusBarStyle isEqualToString:@"Black"]) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
