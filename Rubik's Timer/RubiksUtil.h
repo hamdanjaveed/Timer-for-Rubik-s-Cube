@@ -24,5 +24,7 @@
                                  andParameter:(int)parameter;
 + (BOOL)checkSettingsForCorrectness:(NSDictionary *)settings;
 + (void)buildFiles;
++ (UIColor *)randomNiceColor;
++ (UIColor *)randomComplimentColor:(UIColor *)color;
 
 @end

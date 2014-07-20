@@ -10,8 +10,8 @@
 #import "Time.h"
 
 /*
- NSUserDefaults Structure:
- -------------------------
+ NSUserDefaults Structure (Old):
+ -------------------------------
 
  > times (NSArray)
  
@@ -34,6 +34,14 @@
             - foreground string: NSString
             - status bar style: NSString
             - tint: UIColor
+ */
+
+/*
+ * Storage Structure (Proposed)
+    Want to store:
+        - Solves (with metadata)
+        - Settings
+        - Themes (an array of colors)
  */
 
 @interface RubiksTimeViewController ()

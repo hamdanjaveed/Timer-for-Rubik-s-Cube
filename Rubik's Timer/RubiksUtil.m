@@ -228,4 +228,16 @@
     SYNCHRONIZE_SETTINGS;
 }
 
++ (UIColor *)randomNiceColor {
+    float hue = arc4random() % 360 / 360.0f;
+    return [UIColor colorWithHue:hue saturation:0.6f brightness:0.6f alpha:1.0f];
+}
+
++ (UIColor *)randomComplimentColor:(UIColor *)color {
+    float hue, sat, brightness, alpha;
+    [color getHue:&hue saturation:&sat brightness:&brightness alpha:&alpha];
+    float newHue = ((int)(hue * 360) + 270) % 360 / 360.0f;
+    return [UIColor colorWithHue:newHue saturation:0.8f brightness:1.0f alpha:0.75f];
+}
+
 @end
