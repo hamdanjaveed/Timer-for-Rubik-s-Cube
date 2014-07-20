@@ -13,7 +13,34 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // register to observe key-value store notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storeDidChange:)
+                                                 name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+                                               object:[NSUbiquitousKeyValueStore defaultStore]];
+
+    // sync changes that might have happened offline
+    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     return YES;
+}
+
+- (void)storeDidChange:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    NSNumber *reasonForChange = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangeReasonKey];
+    NSInteger reason = -1;
+
+    if (!reasonForChange) return;
+
+    reason = [reasonForChange integerValue];
+    if ((reason == NSUbiquitousKeyValueStoreServerChange) || (reason == NSUbiquitousKeyValueStoreInitialSyncChange)) {
+        NSArray *changedKeys = [userInfo objectForKey:NSUbiquitousKeyValueStoreChangedKeysKey];
+        NSUbiquitousKeyValueStore *store = [NSUbiquitousKeyValueStore defaultStore];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+        for (NSString *key in changedKeys) {
+            [userDefaults setObject:[store objectForKey:key] forKey:key];
+        }
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
