@@ -18,16 +18,6 @@
  > settings (NSDictionary)
     - inspection time: NSNumber
     - theme: NSDictionary (proposed)
-        - background: NSDictionary
-            - color: UIColor
-            - string: NSString
-        - foreground: NSDictionary
-            - color: UIColor
-            - string: NSString
-        - status bar style: NSString
-        - tint: UIColor
-
-        (current)
         - background color: UIColor
         - foreground color: UIColor
         - background string: NSString
