@@ -40,8 +40,19 @@
  * Storage Structure (Proposed)
     Want to store:
         - Solves (with metadata)
+            - An array, where each entry is an array like this:
+                - [0] NSNumber (double): time
+                - [1] NSDate: date
+                - [2] NSString: scramble
         - Settings
+            - "inspection time": NSNumber: time
+            - "theme": NSDictionary:
+                - "background": NSData (UIColor): background color
+                - "link": NSData (UIColor): link color
         - Themes (an array of colors)
+            - [0] NSData (UIColor): blue
+            - [1] NSData (UIColor): lightblue
+            ...
  */
 
 @interface RubiksTimeViewController ()
