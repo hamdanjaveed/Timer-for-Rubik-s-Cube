@@ -160,8 +160,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             // Delete the row from the data source
             NSMutableArray *times = [NSMutableArray arrayWithArray:USER_TIMES];
             [times removeObjectAtIndex:indexPath.row];
-            [[NSUserDefaults standardUserDefaults] setObject:[times copy] forKey:TIMES_KEY];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[NSUbiquitousKeyValueStore defaultStore] setObject:[times copy] forKey:TIMES_KEY];
+            [[NSUbiquitousKeyValueStore defaultStore] synchronize];
             
             if ([USER_TIMES count]) {
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];

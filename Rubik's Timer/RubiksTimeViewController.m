@@ -85,7 +85,7 @@
     
     [RubiksUtil buildFiles];
     
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSUbiquitousKeyValueStore *ud = [NSUbiquitousKeyValueStore defaultStore];
     
     NSDictionary *settings = [ud objectForKey:SETTINGS_KEY];
     
@@ -122,13 +122,13 @@
         if (self.inspectionDidFinish) {
             [self.timer invalidate];
             Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
-            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIMES_KEY]];
+            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUbiquitousKeyValueStore defaultStore] arrayForKey:TIMES_KEY]];
             if (!timesInMemory) {
                 timesInMemory = [[NSMutableArray alloc] init];
             }
             [timesInMemory insertObject:[Time convertToArray:time] atIndex:0];
-            [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIMES_KEY];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[NSUbiquitousKeyValueStore defaultStore] setObject:[timesInMemory copy] forKey:TIMES_KEY];
+            [[NSUbiquitousKeyValueStore defaultStore] synchronize];
             
             [self generateScramble];
             

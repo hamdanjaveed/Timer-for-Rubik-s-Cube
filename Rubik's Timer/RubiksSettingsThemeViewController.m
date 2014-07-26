@@ -63,7 +63,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
     [settings setObject:theme forKey:THEME_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:SETTINGS_KEY];
+    [[NSUbiquitousKeyValueStore defaultStore] setObject:settings forKey:SETTINGS_KEY];
     SYNCHRONIZE_SETTINGS;
     
     [self resetSelectedIndexPath];

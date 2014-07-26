@@ -93,7 +93,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         NSArray *array = [[NSArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:array forKey:TIMES_KEY];
+        [[NSUbiquitousKeyValueStore defaultStore] setObject:array forKey:TIMES_KEY];
         SYNCHRONIZE_SETTINGS;
     }
 }
@@ -108,7 +108,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSMutableDictionary *settings = [USER_SETTINGS mutableCopy];
     [settings setObject:[NSNumber numberWithInt:time] forKey:INSPECTION_TIME_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:[settings copy] forKey:SETTINGS_KEY];
+    [[NSUbiquitousKeyValueStore defaultStore] setObject:[settings copy] forKey:SETTINGS_KEY];
     SYNCHRONIZE_SETTINGS;
 }
 

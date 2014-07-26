@@ -224,7 +224,7 @@
     
     NSArray *themes = [NSArray arrayWithObjects:orangeWhite, lightBlueWhite, darkBlueWhite, lightGreenWhite, purpleWhite, blackWhite, brownBlue, nil];
     NSDictionary *files = [NSDictionary dictionaryWithObject:themes forKey:FILES_THEMES_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:files forKey:FILES_KEY];
+    [[NSUbiquitousKeyValueStore defaultStore] setObject:files forKey:FILES_KEY];
     SYNCHRONIZE_SETTINGS;
 }
 

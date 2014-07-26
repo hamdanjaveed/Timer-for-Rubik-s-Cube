@@ -47,7 +47,7 @@
 }
 
 - (void)updateStatistics {
-    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:TIMES_KEY];
+    self.times = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:TIMES_KEY];
     if ([self.times count]) {
         [self updateNumberOfSolves];
         [self updateBest];
@@ -74,7 +74,7 @@
 }
 
 - (void)updateNumberOfSolves {
-    int count = (int)[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
+    int count = (int)[[[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"times"] count];
     self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", count];
 }
 

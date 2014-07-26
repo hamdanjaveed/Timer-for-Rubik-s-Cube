@@ -32,11 +32,11 @@
 #define FILES_KEY @"files"
 #define FILES_THEMES_KEY @"files themes"
 
-#define USER_SETTINGS [[NSUserDefaults standardUserDefaults] dictionaryForKey:SETTINGS_KEY]
-#define USER_TIMES [[NSUserDefaults standardUserDefaults] arrayForKey:TIMES_KEY]
-#define FILES [[NSUserDefaults standardUserDefaults] dictionaryForKey:FILES_KEY]
+#define USER_SETTINGS [[NSUbiquitousKeyValueStore defaultStore] dictionaryForKey:SETTINGS_KEY]
+#define USER_TIMES [[NSUbiquitousKeyValueStore defaultStore] arrayForKey:TIMES_KEY]
+#define FILES [[NSUbiquitousKeyValueStore defaultStore] dictionaryForKey:FILES_KEY]
 
-#define SYNCHRONIZE_SETTINGS [[NSUserDefaults standardUserDefaults] synchronize]
+#define SYNCHRONIZE_SETTINGS [[NSUbiquitousKeyValueStore defaultStore] synchronize]
 
 #define FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR 0.65f
 #endif
