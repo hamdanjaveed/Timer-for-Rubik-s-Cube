@@ -39,14 +39,11 @@
     // Configure the cell...
     NSDictionary *theme = [FILES objectForKey:FILES_THEMES_KEY][indexPath.row];
     cell.textLabel.text = [theme objectForKey:THEME_BACKGROUND_STRING_KEY];
-    cell.detailTextLabel.text = [@"with " stringByAppendingString:[theme objectForKey:THEME_FOREGROUND_STRING_KEY]];
     cell.backgroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_BACKGROUND_COLOR_KEY]];
-    [cell.textLabel setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]]];
-    [cell.detailTextLabel setTextColor:[NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]]];
     
     if (self.selectedThemeIndexPath.row == indexPath.row) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        cell.tintColor = [NSKeyedUnarchiver unarchiveObjectWithData:[theme objectForKey:THEME_FOREGROUND_COLOR_KEY]];
+        cell.tintColor = [RubiksUtil getThemeForeground];
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }

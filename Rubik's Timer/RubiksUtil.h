@@ -13,8 +13,8 @@
 + (NSString *)generateScramble;
 + (NSString *)formatTime:(double)seconds;
 + (NSString *)getEmailMessageBody;
-+ (UIColor *)getThemeBackground;
 + (UIColor *)getThemeForeground;
++ (UIColor *)getThemeBackground;
 + (UIColor *)getThemeTint;
 + (UIColor *)reduceAlphaOfColor:(UIColor *)color
                     byAFactorOf:(float)factor;
