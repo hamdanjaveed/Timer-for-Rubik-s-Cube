@@ -7,9 +7,34 @@
 //
 
 #import "RubiksTimeViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 
+/*
+ NSUserDefaults Structure:
+ -------------------------
+
+ > times (NSArray)
+ 
+ > settings (NSDictionary)
+    - inspection time: NSNumber
+    - theme: NSDictionary (proposed)
+        - background color: UIColor
+        - foreground color: UIColor
+        - background string: NSString
+        - foreground string: NSString
+        - status bar style: NSString
+        - tint: UIColor
+ 
+ > files (NSDictionary)
+    - themes: NSArray
+        - theme[i] (NSDictionary)
+            - background color: UIColor
+            - foreground color: UIColor
+            - background string: NSString
+            - foreground string: NSString
+            - status bar style: NSString
+            - tint: UIColor
+ */
 
 @interface RubiksTimeViewController ()
 @property (strong, nonatomic) NSTimer *timer;
@@ -39,19 +64,37 @@
     [self.blurView setOpaque:NO];
     [self.blurView setUserInteractionEnabled:NO];
     
-    NSDictionary *settings = [[NSUserDefaults standardUserDefaults] objectForKey:@"settings"];
-    if (!settings) {
-        settings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:15], @"inspection time", nil];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"settings"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [RubiksUtil buildFiles];
     
-    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary *settings = [ud objectForKey:SETTINGS_KEY];
+    
+    if (![RubiksUtil checkSettingsForCorrectness:settings]) {
+        NSNumber *inspectionTime = @(15);
+        
+        NSDictionary *theme = [[FILES objectForKey:FILES_THEMES_KEY] firstObject];
+        settings = [[NSDictionary alloc] initWithObjectsAndKeys:inspectionTime, INSPECTION_TIME_KEY, theme, THEME_KEY, nil];
+        [ud setObject:settings forKey:SETTINGS_KEY];
+        [ud synchronize];
+    }
+
+    self.startingInspectionTime = [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue];
 }
 
-#define TIME_ARRAY_KEY @"times"
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    UIColor *foreground = [RubiksUtil getThemeForeground];
+    [self.timerLabel setTextColor:foreground];
+    [self.scrambleLabel setTextColor:[RubiksUtil reduceAlphaOfColor:foreground
+                                                        byAFactorOf:FOREGROUND_LIGHT_ALPHA_REDUCTION_FACTOR]];
+    
+    [RubiksUtil setAppropriateStatusBarStyle];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.startingInspectionTime = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"settings"] objectForKey:@"inspection time"] intValue];
+    self.startingInspectionTime = [[USER_SETTINGS objectForKey:INSPECTION_TIME_KEY] intValue];
     
     if (self.timerIsRunning) {
         self.timerIsRunning = NO;
@@ -60,12 +103,12 @@
         if (self.inspectionDidFinish) {
             [self.timer invalidate];
             Time *time = [[Time alloc] initWithTime:self.currentTime date:[NSDate date] andScramble:self.scrambleLabel.text];
-            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIME_ARRAY_KEY]];
+            NSMutableArray *timesInMemory = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:TIMES_KEY]];
             if (!timesInMemory) {
                 timesInMemory = [[NSMutableArray alloc] init];
             }
             [timesInMemory insertObject:[Time convertToArray:time] atIndex:0];
-            [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIME_ARRAY_KEY];
+            [[NSUserDefaults standardUserDefaults] setObject:[timesInMemory copy] forKey:TIMES_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self generateScramble];

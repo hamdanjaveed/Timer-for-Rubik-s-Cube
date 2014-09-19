@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RubiksAdhereToThemeViewController.h"
 
-@interface RubiksIndividualTimeViewController : UIViewController
+@interface RubiksIndividualTimeViewController : RubiksAdhereToThemeViewController
 @property (nonatomic) NSTimeInterval time;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *scramble;

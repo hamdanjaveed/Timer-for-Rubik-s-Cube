@@ -7,17 +7,9 @@
 //
 
 #import "RubiksStatisticsViewController.h"
-#import "RubiksUtil.h"
 #import "Time.h"
 
 @interface RubiksStatisticsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *numberOfSolvesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bestLabel;
-@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *average5Label;
-@property (weak, nonatomic) IBOutlet UILabel *average10Label;
-@property (weak, nonatomic) IBOutlet UILabel *worstLabel;
-
 @property (strong, nonatomic) NSArray *times;
 @end
 
@@ -25,86 +17,125 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self updateStatistics];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self updateStatistics];
+    
+    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:TIMES_KEY];
+    [self.tableView reloadData];
+    [RubiksUtil setAppropriateStatusBarStyle];
 }
 
-- (void)updateStatistics {
-    self.times = [[NSUserDefaults standardUserDefaults] objectForKey:@"times"];
-    if ([self.times count]) {
-        [self updateNumberOfSolves];
-        [self updateBest];
-        [self updateWorst];
-        [self updateAverage];
-        [self updateAverageOf5];
-        [self updateAverageOf10];
-    } else {
-        self.bestLabel.text = @"Best: No recorded solves";
-        self.numberOfSolvesLabel.text = @"Number of solves: 0";
-        self.worstLabel.text = @"Worst: No recorded solves";
-        self.averageLabel.text = @"Average: No recorded solves";
-        self.average5Label.text = @"Average of 5: Need 5 more solves";
-        self.average10Label.text = @"Average of 10: Need 10 more solves";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    NSString *cellID = cell.reuseIdentifier;
+    if ([cellID isEqualToString:@"number of solves"]) {
+        cell.detailTextLabel.text = [self calculateNumberOfSolves];
+    } else if ([cellID isEqualToString:@"best"]) {
+        cell.detailTextLabel.text = [self calculateBest];
+    } else if ([cellID isEqualToString:@"worst"]) {
+        cell.detailTextLabel.text = [self calculateWorst];
+    } else if ([cellID isEqualToString:@"average"]) {
+        cell.detailTextLabel.text = [self calculateAverage];
+    } else if ([cellID isEqualToString:@"average5"]) {
+        cell.detailTextLabel.text = [self calculateAverageOf:5];
+    } else if ([cellID isEqualToString:@"average10"]) {
+        cell.detailTextLabel.text = [self calculateAverageOf:10];
+    } else if ([cellID isEqualToString:@"average12"]) {
+        cell.detailTextLabel.text = [self calculateAverageOf:12];
+    } else if ([cellID isEqualToString:@"standard deviation"]) {
+        cell.detailTextLabel.text = [self calculateStandardDeviation];
     }
+    
+    return cell;
 }
 
-- (void)updateWorst {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)calculateWorst {
+    if (![self.times count]) {
+        return @"No Recorded Solves";
+    }
+    
     double max = [Time getTimeFromArray:[self.times firstObject]];
     for (int i = 1; i < [self.times count]; i++) {
         max = MAX(max, [Time getTimeFromArray:self.times[i]]);
     }
-    self.worstLabel.text = [NSString stringWithFormat:@"Worst: %@", [RubiksUtil formatTime:max]];
+    return [NSString stringWithFormat:@"%@", [RubiksUtil formatTime:max]];
 }
 
-- (void)updateNumberOfSolves {
-    int count = [[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
-    self.numberOfSolvesLabel.text = [NSString stringWithFormat:@"Number of solves: %d", count];
+- (NSString *)calculateNumberOfSolves {
+    int count = (int)[[[NSUserDefaults standardUserDefaults] objectForKey:@"times"] count];
+    return [NSString stringWithFormat:@"%d", count];
 }
 
-- (void)updateBest {
+- (NSString *)calculateBest {
+    if (![self.times count]) {
+        return @"No Recorded Solves";
+    }
+    
     double min = [Time getTimeFromArray:[self.times firstObject]];
     for (int i = 1; i < [self.times count]; i++) {
         min = MIN(min, [Time getTimeFromArray:self.times[i]]);
     }
-    self.bestLabel.text = [NSString stringWithFormat:@"Best: %@", [RubiksUtil formatTime:min]];
+    return [NSString stringWithFormat:@"%@", [RubiksUtil formatTime:min]];
 }
 
-- (void)updateAverage {
+- (NSString *)calculateAverage {
+    if (![self.times count]) {
+        return @"No Recorded Solves";
+    }
+    
     double sum = [Time getTimeFromArray:[self.times firstObject]];
     for (int i = 1; i < [self.times count]; i++) {
         sum += [Time getTimeFromArray:self.times[i]];
     }
-    self.averageLabel.text = [NSString stringWithFormat:@"Average: %@", [RubiksUtil formatTime:sum / [self.times count]]];
+    return [NSString stringWithFormat:@"%@", [RubiksUtil formatTime:sum / [self.times count]]];
 }
 
-- (void)updateAverageOf5 {
-    NSUInteger numberOfSolves = [self.times count];
-    if (numberOfSolves < 5) {
-        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: Need %u more solve%@", 5 - numberOfSolves, (5 - numberOfSolves == 1) ? @"" : @"s"];
+- (NSString *)calculateAverageOf:(int)averageCount {
+    int numberOfSolves = (int)[self.times count];
+    if (numberOfSolves < averageCount) {
+        return [NSString stringWithFormat:@"Need %d more solve%@", averageCount - numberOfSolves, (averageCount - numberOfSolves == 1) ? @"" : @"s"];
     } else {
         double sum = [Time getTimeFromArray:[self.times firstObject]];
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < averageCount; i++) {
             sum += [Time getTimeFromArray:self.times[i]];
         }
-        self.average5Label.text = [NSString stringWithFormat:@"Average of 5: %@", [RubiksUtil formatTime:sum / 5]];
+        return [NSString stringWithFormat:@"%@", [RubiksUtil formatTime:sum / averageCount]];
     }
 }
 
-- (void)updateAverageOf10 {
-    NSUInteger numberOfSolves = [self.times count];
-    if (numberOfSolves < 10) {
-        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: Need %u more solve%@", 10 - numberOfSolves, (10 - numberOfSolves == 1) ? @"" : @"s"];
-    } else {
-        double sum = [Time getTimeFromArray:[self.times firstObject]];
-        for (int i = 1; i < 10; i++) {
-            sum += [Time getTimeFromArray:self.times[i]];
-        }
-        self.average10Label.text = [NSString stringWithFormat:@"Average of 10: %@", [RubiksUtil formatTime:sum / 10]];
+- (NSString *)calculateStandardDeviation {
+    if (![self.times count]) {
+        return @"No Recorded Solves";
     }
+
+    double total = 0.0f;
+
+    for (int i = 0; i < [self.times count]; i++) {
+        total += [Time getTimeFromArray:self.times[i]];
+    }
+
+    double mean = total / [self.times count];
+
+    NSMutableArray *values = [NSMutableArray arrayWithCapacity:[self.times count]];
+
+    for (int i = 0; i < [self.times count]; i++) {
+        [values addObject:[NSNumber numberWithDouble:pow([Time getTimeFromArray:self.times[i]] - mean, 2)]];
+    }
+
+    double secondTotal = 0.0f;
+
+    for (int i = 0; i < [values count]; i++) {
+        secondTotal += [values[i] doubleValue];
+    }
+
+    return [NSString stringWithFormat:@"%f", sqrt(secondTotal / [values count])];
 }
 
 @end
