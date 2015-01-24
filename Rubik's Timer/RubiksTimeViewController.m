@@ -113,6 +113,8 @@
             
             [self generateScramble];
             
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            
             [self toggleBlur];
         }
     }
@@ -126,6 +128,8 @@
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(update:) userInfo:nil repeats:YES];
         [self.timer fire];
         self.inspectionDidFinish = YES;
+        
+        [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
         
         [self toggleBlur];
     } else {
