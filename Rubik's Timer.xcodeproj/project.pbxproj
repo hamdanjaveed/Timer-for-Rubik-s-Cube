@@ -13,6 +13,7 @@
 		EA339EC31A75BF0400FED4B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA339EC11A75BF0400FED4B8 /* LaunchScreen.xib */; };
 		EA339ECF1A75BF0400FED4B8 /* Rubik_s_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA339ECE1A75BF0400FED4B8 /* Rubik_s_TimerTests.swift */; };
 		EA7BA01B1ACB90C100CF700F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BA01A1ACB90C100CF700F /* TimerViewController.swift */; };
+		EA7BA01F1ACB937600CF700F /* TimerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7BA01E1ACB937600CF700F /* TimerStateMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		EA339ECD1A75BF0400FED4B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA339ECE1A75BF0400FED4B8 /* Rubik_s_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rubik_s_TimerTests.swift; sourceTree = "<group>"; };
 		EA7BA01A1ACB90C100CF700F /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		EA7BA01E1ACB937600CF700F /* TimerStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerStateMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7BA01C1ACB92FF00CF700F /* Timer */,
+				EA7BA01D1ACB936700CF700F /* Utilities */,
 				EA339EBC1A75BF0300FED4B8 /* Main.storyboard */,
 				EA339EBF1A75BF0400FED4B8 /* Images.xcassets */,
 				EA339EB41A75BF0300FED4B8 /* Supporting Files */,
@@ -118,6 +121,14 @@
 				EA7BA01A1ACB90C100CF700F /* TimerViewController.swift */,
 			);
 			name = Timer;
+			sourceTree = "<group>";
+		};
+		EA7BA01D1ACB936700CF700F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EA7BA01E1ACB937600CF700F /* TimerStateMachine.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 			files = (
 				EA7BA01B1ACB90C100CF700F /* TimerViewController.swift in Sources */,
 				EA339EB71A75BF0300FED4B8 /* AppDelegate.swift in Sources */,
+				EA7BA01F1ACB937600CF700F /* TimerStateMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
