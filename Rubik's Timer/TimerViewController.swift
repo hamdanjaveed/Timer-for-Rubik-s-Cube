@@ -11,6 +11,8 @@ import UIKit
 class TimerViewController: UIViewController, TimerStateMachineDelegate {
     
     var stateMachine: TimerStateMachine = TimerStateMachine()
+    var timer: NSTimer?
+    var startTime: NSTimeInterval?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,19 @@ class TimerViewController: UIViewController, TimerStateMachineDelegate {
     
     func timerBegan() {
         println("Timer began")
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "timerTick:", userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
     }
     
     func timerStopped() {
         println("Timer stopped")
+        var elapsedTime = NSDate.timeIntervalSinceReferenceDate() - startTime!
+        timer?.invalidate()
+        timer = nil
+    }
+
+    func timerTick(timer: NSTimer!) {
+        println("Timer fired")
     }
 
 }
