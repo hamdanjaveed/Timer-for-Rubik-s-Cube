@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA47CF3A20FA8A1F009AABE9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA47CF3820FA8A1F009AABE9 /* Model.xcdatamodeld */; };
+		EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB14200719A5006274CA /* AppDelegate.swift */; };
+		EAB2EB17200719A6006274CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB16200719A6006274CA /* ViewController.swift */; };
+		EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB18200719A6006274CA /* Main.storyboard */; };
+		EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1B200719A6006274CA /* Assets.xcassets */; };
+		EAB2EB1F200719A6006274CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1D200719A6006274CA /* LaunchScreen.storyboard */; };
+		EAB2EB2A200719A6006274CA /* Rubik_s_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAB2EB26200719A6006274CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAB2EB09200719A5006274CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAB2EB10200719A5006274CA;
+			remoteInfo = "Rubik's-Timer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA47CF3920FA8A1F009AABE9 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		EAB2EB11200719A5006274CA /* Rubik's-Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's-Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB2EB14200719A5006274CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAB2EB16200719A6006274CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAB2EB19200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAB2EB1B200719A6006274CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAB2EB1E200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAB2EB20200719A6006274CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB2EB25200719A6006274CA /* Rubik's-TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rubik's-TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rubik_s_TimerTests.swift; sourceTree = "<group>"; };
+		EAB2EB2B200719A6006274CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAB2EB0E200719A5006274CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB2EB22200719A6006274CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAB2EB08200719A5006274CA = {
+			isa = PBXGroup;
+			children = (
+				EAB2EB13200719A5006274CA /* Rubik's-Timer */,
+				EAB2EB28200719A6006274CA /* Rubik's-TimerTests */,
+				EAB2EB12200719A5006274CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAB2EB12200719A5006274CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAB2EB11200719A5006274CA /* Rubik's-Timer.app */,
+				EAB2EB25200719A6006274CA /* Rubik's-TimerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAB2EB13200719A5006274CA /* Rubik's-Timer */ = {
+			isa = PBXGroup;
+			children = (
+				EAB2EB14200719A5006274CA /* AppDelegate.swift */,
+				EAB2EB16200719A6006274CA /* ViewController.swift */,
+				EAB2EB18200719A6006274CA /* Main.storyboard */,
+				EAB2EB1B200719A6006274CA /* Assets.xcassets */,
+				EAB2EB1D200719A6006274CA /* LaunchScreen.storyboard */,
+				EAB2EB20200719A6006274CA /* Info.plist */,
+				EA47CF3820FA8A1F009AABE9 /* Model.xcdatamodeld */,
+			);
+			path = "Rubik's-Timer";
+			sourceTree = "<group>";
+		};
+		EAB2EB28200719A6006274CA /* Rubik's-TimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */,
+				EAB2EB2B200719A6006274CA /* Info.plist */,
+			);
+			path = "Rubik's-TimerTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAB2EB10200719A5006274CA /* Rubik's-Timer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAB2EB2E200719A6006274CA /* Build configuration list for PBXNativeTarget "Rubik's-Timer" */;
+			buildPhases = (
+				EAB2EB0D200719A5006274CA /* Sources */,
+				EAB2EB0E200719A5006274CA /* Frameworks */,
+				EAB2EB0F200719A5006274CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rubik's-Timer";
+			productName = "Rubik's-Timer";
+			productReference = EAB2EB11200719A5006274CA /* Rubik's-Timer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAB2EB24200719A6006274CA /* Rubik's-TimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAB2EB31200719A6006274CA /* Build configuration list for PBXNativeTarget "Rubik's-TimerTests" */;
+			buildPhases = (
+				EAB2EB21200719A6006274CA /* Sources */,
+				EAB2EB22200719A6006274CA /* Frameworks */,
+				EAB2EB23200719A6006274CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAB2EB27200719A6006274CA /* PBXTargetDependency */,
+			);
+			name = "Rubik's-TimerTests";
+			productName = "Rubik's-TimerTests";
+			productReference = EAB2EB25200719A6006274CA /* Rubik's-TimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAB2EB09200719A5006274CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Hamdan Javeed";
+				TargetAttributes = {
+					EAB2EB10200719A5006274CA = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					EAB2EB24200719A6006274CA = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EAB2EB10200719A5006274CA;
+					};
+				};
+			};
+			buildConfigurationList = EAB2EB0C200719A5006274CA /* Build configuration list for PBXProject "Rubik's-Timer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAB2EB08200719A5006274CA;
+			productRefGroup = EAB2EB12200719A5006274CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAB2EB10200719A5006274CA /* Rubik's-Timer */,
+				EAB2EB24200719A6006274CA /* Rubik's-TimerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAB2EB0F200719A5006274CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB2EB1F200719A6006274CA /* LaunchScreen.storyboard in Resources */,
+				EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */,
+				EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB2EB23200719A6006274CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAB2EB0D200719A5006274CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB2EB17200719A6006274CA /* ViewController.swift in Sources */,
+				EA47CF3A20FA8A1F009AABE9 /* Model.xcdatamodeld in Sources */,
+				EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB2EB21200719A6006274CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB2EB2A200719A6006274CA /* Rubik_s_TimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAB2EB27200719A6006274CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAB2EB10200719A5006274CA /* Rubik's-Timer */;
+			targetProxy = EAB2EB26200719A6006274CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAB2EB18200719A6006274CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAB2EB19200719A6006274CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAB2EB1D200719A6006274CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAB2EB1E200719A6006274CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAB2EB2C200719A6006274CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAB2EB2D200719A6006274CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAB2EB2F200719A6006274CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-Timer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-Timer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAB2EB30200719A6006274CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-Timer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-Timer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EAB2EB32200719A6006274CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-TimerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rubik's-Timer.app/Rubik's-Timer";
+			};
+			name = Debug;
+		};
+		EAB2EB33200719A6006274CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-TimerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rubik's-Timer.app/Rubik's-Timer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAB2EB0C200719A5006274CA /* Build configuration list for PBXProject "Rubik's-Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB2EB2C200719A6006274CA /* Debug */,
+				EAB2EB2D200719A6006274CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAB2EB2E200719A6006274CA /* Build configuration list for PBXNativeTarget "Rubik's-Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB2EB2F200719A6006274CA /* Debug */,
+				EAB2EB30200719A6006274CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAB2EB31200719A6006274CA /* Build configuration list for PBXNativeTarget "Rubik's-TimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB2EB32200719A6006274CA /* Debug */,
+				EAB2EB33200719A6006274CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EA47CF3820FA8A1F009AABE9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EA47CF3920FA8A1F009AABE9 /* Data.xcdatamodel */,
+			);
+			currentVersion = EA47CF3920FA8A1F009AABE9 /* Data.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EAB2EB09200719A5006274CA /* Project object */;
+}
