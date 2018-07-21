@@ -11,6 +11,9 @@
 		EA5B48B020FFC5EE00CC60FD /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48AF20FFC5EE00CC60FD /* TimerViewController.swift */; };
 		EA5B48B220FFC65F00CC60FD /* SolvesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B120FFC65F00CC60FD /* SolvesTableViewController.swift */; };
 		EA5B48B42101553300CC60FD /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B32101553300CC60FD /* TimeIntervalExtensions.swift */; };
+		EA5B48B62102F9A500CC60FD /* Solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B52102F9A500CC60FD /* Solve.swift */; };
+		EA5B48B82103B77500CC60FD /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */; };
+		EA5B48BA2103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */; };
 		EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB14200719A5006274CA /* AppDelegate.swift */; };
 		EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB18200719A6006274CA /* Main.storyboard */; };
 		EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1B200719A6006274CA /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		EA5B48AF20FFC5EE00CC60FD /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		EA5B48B120FFC65F00CC60FD /* SolvesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolvesTableViewController.swift; sourceTree = "<group>"; };
 		EA5B48B32101553300CC60FD /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
+		EA5B48B52102F9A500CC60FD /* Solve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solve.swift; sourceTree = "<group>"; };
+		EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewDataSource+NSFetchedResultsController.swift"; sourceTree = "<group>"; };
 		EAB2EB11200719A5006274CA /* Rubik's-Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's-Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB2EB14200719A5006274CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB2EB19200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				EAB2EB20200719A6006274CA /* Info.plist */,
 				EA47CF3820FA8A1F009AABE9 /* Model.xcdatamodeld */,
 				EA5B48B32101553300CC60FD /* TimeIntervalExtensions.swift */,
+				EA5B48B52102F9A500CC60FD /* Solve.swift */,
+				EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */,
+				EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */,
 			);
 			path = "Rubik's-Timer";
 			sourceTree = "<group>";
@@ -209,8 +218,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA47CF3A20FA8A1F009AABE9 /* Model.xcdatamodeld in Sources */,
+				EA5B48B62102F9A500CC60FD /* Solve.swift in Sources */,
+				EA5B48BA2103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift in Sources */,
 				EA5B48B220FFC65F00CC60FD /* SolvesTableViewController.swift in Sources */,
 				EA5B48B42101553300CC60FD /* TimeIntervalExtensions.swift in Sources */,
+				EA5B48B82103B77500CC60FD /* FetchedResultsTableViewController.swift in Sources */,
 				EA5B48B020FFC5EE00CC60FD /* TimerViewController.swift in Sources */,
 				EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */,
 			);

@@ -68,12 +68,14 @@ class TimerViewController: UIViewController {
         if let begin = timerBegin {
             let solveTime = -begin.timeIntervalSinceNow
             timerLabel.text = solveTime.format()
-            print("Solved in \(solveTime)")
 
-            let s = Solve(context: AppDelegate.viewContext)
-            s.date = begin
-            s.scramble = "lol"
-            s.time = solveTime
+            AppDelegate.persistentContainer.performBackgroundTask { context in
+                let s = Solve(context: context)
+                s.date = begin
+                s.scramble = "lol"
+                s.time = solveTime
+                try? context.save()
+            }
         }
     }
 
