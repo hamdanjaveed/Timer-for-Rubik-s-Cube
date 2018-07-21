@@ -70,6 +70,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1kT-DG-78I" kind="show" identifier="Show Solve" id="uxk-wR-Lbc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -77,11 +80,55 @@
                             <outlet property="delegate" destination="UpE-jH-oL4" id="udj-wv-KAc"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Solves" id="5vg-Dz-CaN"/>
+                    <navigationItem key="navigationItem" title="Solves" id="bkH-K8-2Yf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZpA-3b-7g4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="567"/>
+            <point key="canvasLocation" x="1392.8" y="566.26686656671666"/>
+        </scene>
+        <!--Solve-->
+        <scene sceneID="dld-GX-Reh">
+            <objects>
+                <viewController id="1kT-DG-78I" customClass="SolveViewController" customModule="Rubik_s_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tjw-yV-AfF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnT-9H-dFj">
+                                <rect key="frame" x="16" y="76" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmt-q6-A6t">
+                                <rect key="frame" x="16" y="158" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scramble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-7d-Mpv">
+                                <rect key="frame" x="16" y="239" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dEQ-HH-x9T"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Solve" id="sGY-co-1dz"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="Mmt-q6-A6t" id="HLH-Wc-PjX"/>
+                        <outlet property="scrambleLabel" destination="VEc-7d-Mpv" id="Mxm-VS-jKO"/>
+                        <outlet property="timeLabel" destination="mnT-9H-dFj" id="DUp-Qi-feY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nxe-bZ-jxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2296.8000000000002" y="564.46776611694156"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ng2-x8-ZzQ">
@@ -94,12 +141,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="iKN-2n-UY8" kind="relationship" relationship="viewControllers" id="Yht-lC-nYE"/>
-                        <segue destination="UpE-jH-oL4" kind="relationship" relationship="viewControllers" id="cfa-w9-0Dn"/>
+                        <segue destination="rGJ-gv-cW4" kind="relationship" relationship="viewControllers" id="cfa-w9-0Dn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goM-Gp-fdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10" y="-203"/>
+        </scene>
+        <!--Solves-->
+        <scene sceneID="tWN-XH-Ene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rGJ-gv-cW4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Solves" id="5vg-Dz-CaN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HmW-U4-3l1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UpE-jH-oL4" kind="relationship" relationship="rootViewController" id="9A0-qn-AcU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z79-d7-kka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453.60000000000002" y="566.26686656671666"/>
         </scene>
     </scenes>
 </document>

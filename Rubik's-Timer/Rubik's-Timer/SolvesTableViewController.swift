@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class SolvesTableViewController: FetchedResultsTableViewController {
+    static let showSolveSegueIdentifier = "Show Solve"
+
     var container: NSPersistentContainer? = AppDelegate.persistentContainer {
         didSet {
             updateUI()
@@ -42,5 +44,15 @@ class SolvesTableViewController: FetchedResultsTableViewController {
         }
 
         return cell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SolvesTableViewController.showSolveSegueIdentifier {
+            let showSolveViewController = segue.destination as! SolveViewController
+
+            if let indexPath = tableView.indexPathForSelectedRow, let solve = fetchedResultsController?.object(at: indexPath) {
+                showSolveViewController.solve = solve
+            }
+        }
     }
 }
