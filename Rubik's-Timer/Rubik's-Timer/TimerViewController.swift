@@ -15,6 +15,8 @@ enum TimerState {
     case FINISHED_SOLVING
 }
 
+let inspectTime = 5 // TODO: use prefs
+
 class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
 
@@ -25,7 +27,7 @@ class TimerViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch currentState {
         case .SOLVING:
-            currentState = .FINISHED_SOLVING
+            stopSolving()
         default:
             break
         }
@@ -61,11 +63,25 @@ class TimerViewController: UIViewController {
         timerBegin = Date()
     }
 
+    func stopSolving() {
+        currentState = .FINISHED_SOLVING
+        if let begin = timerBegin {
+            let solveTime = -begin.timeIntervalSinceNow
+            timerLabel.text = solveTime.format()
+            print("Solved in \(solveTime)")
+        }
+    }
+
     func startUpdateTimer() {
         updateTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
             if let begin = self.timerBegin {
                 if self.currentState == .INSPECTING {
-                    self.timerLabel.text = String(-Int(begin.timeIntervalSinceNow))
+                    let inspectionTimeLeft = inspectTime + Int(begin.timeIntervalSinceNow)
+                    if inspectionTimeLeft <= 0 {
+                        self.stopInspection()
+                    } else {
+                        self.timerLabel.text = String(inspectionTimeLeft)
+                    }
                 } else if self.currentState == .SOLVING {
                     self.timerLabel.text = (-begin.timeIntervalSinceNow).format()
                 }
