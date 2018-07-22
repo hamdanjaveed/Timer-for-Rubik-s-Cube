@@ -15,6 +15,8 @@
 		EA5B48B82103B77500CC60FD /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */; };
 		EA5B48BA2103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */; };
 		EA5B48BC2103CF6B00CC60FD /* SolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */; };
+		EA5B48BE2104314B00CC60FD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */; };
+		EA5B48C02104EFFB00CC60FD /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */; };
 		EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB14200719A5006274CA /* AppDelegate.swift */; };
 		EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB18200719A6006274CA /* Main.storyboard */; };
 		EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1B200719A6006274CA /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewDataSource+NSFetchedResultsController.swift"; sourceTree = "<group>"; };
 		EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveViewController.swift; sourceTree = "<group>"; };
+		EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		EAB2EB11200719A5006274CA /* Rubik's-Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's-Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB2EB14200719A5006274CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB2EB19200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				EA5B48B72103B77500CC60FD /* FetchedResultsTableViewController.swift */,
 				EA5B48B92103BCAA00CC60FD /* UITableViewDataSource+NSFetchedResultsController.swift */,
 				EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */,
+				EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */,
+				EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */,
 			);
 			path = "Rubik's-Timer";
 			sourceTree = "<group>";
@@ -226,9 +232,11 @@
 				EA5B48B220FFC65F00CC60FD /* SolvesTableViewController.swift in Sources */,
 				EA5B48B42101553300CC60FD /* TimeIntervalExtensions.swift in Sources */,
 				EA5B48BC2103CF6B00CC60FD /* SolveViewController.swift in Sources */,
+				EA5B48BE2104314B00CC60FD /* SettingsTableViewController.swift in Sources */,
 				EA5B48B82103B77500CC60FD /* FetchedResultsTableViewController.swift in Sources */,
 				EA5B48B020FFC5EE00CC60FD /* TimerViewController.swift in Sources */,
 				EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */,
+				EA5B48C02104EFFB00CC60FD /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

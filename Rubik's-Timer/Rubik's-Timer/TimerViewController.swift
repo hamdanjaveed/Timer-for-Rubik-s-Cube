@@ -15,8 +15,6 @@ enum TimerState {
     case FINISHED_SOLVING
 }
 
-let inspectTime = 5 // TODO: use prefs
-
 class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
 
@@ -80,10 +78,11 @@ class TimerViewController: UIViewController {
     }
 
     func startUpdateTimer() {
+        let totalInspectionTime = UserSettings.getInspectionTime()
         updateTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
             if let begin = self.timerBegin {
                 if self.currentState == .INSPECTING {
-                    let inspectionTimeLeft = inspectTime + Int(begin.timeIntervalSinceNow)
+                    let inspectionTimeLeft = totalInspectionTime + Int(begin.timeIntervalSinceNow)
                     if inspectionTimeLeft <= 0 {
                         self.stopInspection()
                     } else {
