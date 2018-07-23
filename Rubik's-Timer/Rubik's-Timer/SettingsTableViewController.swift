@@ -11,15 +11,16 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     private let prefs = UserDefaults.standard
 
-    @IBOutlet weak var inspectionTimeLabel: UILabel!
-    @IBOutlet weak var inspectionTimeSlider: UISlider!
-
     override func viewDidLoad() {
-        let inspectionTime = UserSettings.getInspectionTime()
-        updateInspectionTimeUI(with: inspectionTime)
+        updateInspectionUI()
+        updateSolvingUI()
     }
 
-    // MARK: Inspection Time
+    // MARK: Inspection
+    @IBOutlet weak var inspectionTimeLabel: UILabel!
+    @IBOutlet weak var inspectionTimeSlider: UISlider!
+    @IBOutlet weak var hideInspectionTimerSwitch: UISwitch!
+
     @IBAction func inspectionTimeChanged(_ sender: UISlider) {
         let inspectionTime = Int(sender.value)
         updateInspectionTimeLabel(with: inspectionTime)
@@ -27,13 +28,17 @@ class SettingsTableViewController: UITableViewController {
         UserSettings.setInspectionTime(to: sender.value)
     }
 
-    private func updateInspectionTimeUI(with inspectionTime: Int) {
-        updateInspectionTimeLabel(with: inspectionTime)
-        updateInspectionTimeSlider(with: Float(inspectionTime))
+    @IBAction func hideInspectionTimerChanged(_ sender: UISwitch) {
+        UserSettings.setInspectionTimerVisibility(to: sender.isOn)
     }
 
-    private func updateInspectionTimeSlider(with inspectionTime: Float) {
-        inspectionTimeSlider.value = inspectionTime
+    private func updateInspectionUI() {
+        let inspectionTime = UserSettings.getInspectionTime()
+
+        updateInspectionTimeLabel(with: inspectionTime)
+
+        inspectionTimeSlider.value = Float(inspectionTime)
+        hideInspectionTimerSwitch.isOn = UserSettings.isInspectionTimerVisible()
     }
 
     private func updateInspectionTimeLabel(with inspectionTime: Int) {
@@ -45,5 +50,16 @@ class SettingsTableViewController: UITableViewController {
         default:
             inspectionTimeLabel.text = "\(inspectionTime) seconds"
         }
+    }
+
+    // MARK: Solving
+    @IBOutlet weak var hideSolveTimerSwitch: UISwitch!
+
+    @IBAction func hideSolveTimerChanged(_ sender: UISwitch) {
+        UserSettings.setSolveTimerVisibility(to: sender.isOn)
+    }
+
+    private func updateSolvingUI() {
+        hideSolveTimerSwitch.isOn = UserSettings.isSolveTimerVisible()
     }
 }

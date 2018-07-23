@@ -17,6 +17,7 @@
 		EA5B48BC2103CF6B00CC60FD /* SolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */; };
 		EA5B48BE2104314B00CC60FD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */; };
 		EA5B48C02104EFFB00CC60FD /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */; };
+		EA5B48C6210556D600CC60FD /* UserSettingDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA5B48C5210556D600CC60FD /* UserSettingDefaults.plist */; };
 		EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB14200719A5006274CA /* AppDelegate.swift */; };
 		EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB18200719A6006274CA /* Main.storyboard */; };
 		EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1B200719A6006274CA /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveViewController.swift; sourceTree = "<group>"; };
 		EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		EA5B48C5210556D600CC60FD /* UserSettingDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserSettingDefaults.plist; sourceTree = "<group>"; };
 		EAB2EB11200719A5006274CA /* Rubik's-Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's-Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB2EB14200719A5006274CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB2EB19200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				EA5B48BB2103CF6B00CC60FD /* SolveViewController.swift */,
 				EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */,
 				EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */,
+				EA5B48C5210556D600CC60FD /* UserSettingDefaults.plist */,
 			);
 			path = "Rubik's-Timer";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5B48C6210556D600CC60FD /* UserSettingDefaults.plist in Resources */,
 				EAB2EB1F200719A6006274CA /* LaunchScreen.storyboard in Resources */,
 				EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */,
 				EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */,
