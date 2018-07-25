@@ -18,14 +18,22 @@
 		EA5B48BE2104314B00CC60FD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */; };
 		EA5B48C02104EFFB00CC60FD /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */; };
 		EA5B48C6210556D600CC60FD /* UserSettingDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA5B48C5210556D600CC60FD /* UserSettingDefaults.plist */; };
+		EA5B48C821056FF300CC60FD /* UserSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48C721056FF300CC60FD /* UserSettingsTests.swift */; };
+		EA5B48D02106BD9100CC60FD /* Rubik_s_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B48CF2106BD9100CC60FD /* Rubik_s_TimerUITests.swift */; };
 		EAB2EB15200719A6006274CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB14200719A5006274CA /* AppDelegate.swift */; };
 		EAB2EB1A200719A6006274CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB18200719A6006274CA /* Main.storyboard */; };
 		EAB2EB1C200719A6006274CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1B200719A6006274CA /* Assets.xcassets */; };
 		EAB2EB1F200719A6006274CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB2EB1D200719A6006274CA /* LaunchScreen.storyboard */; };
-		EAB2EB2A200719A6006274CA /* Rubik_s_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EA5B48D22106BD9100CC60FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAB2EB09200719A5006274CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAB2EB10200719A5006274CA;
+			remoteInfo = "Rubik's-Timer";
+		};
 		EAB2EB26200719A6006274CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EAB2EB09200719A5006274CA /* Project object */;
@@ -47,6 +55,10 @@
 		EA5B48BD2104314B00CC60FD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		EA5B48BF2104EFFB00CC60FD /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		EA5B48C5210556D600CC60FD /* UserSettingDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserSettingDefaults.plist; sourceTree = "<group>"; };
+		EA5B48C721056FF300CC60FD /* UserSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTests.swift; sourceTree = "<group>"; };
+		EA5B48CD2106BD9100CC60FD /* Rubik's-TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rubik's-TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA5B48CF2106BD9100CC60FD /* Rubik_s_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rubik_s_TimerUITests.swift; sourceTree = "<group>"; };
+		EA5B48D12106BD9100CC60FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAB2EB11200719A5006274CA /* Rubik's-Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rubik's-Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB2EB14200719A5006274CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB2EB19200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,11 +66,17 @@
 		EAB2EB1E200719A6006274CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAB2EB20200719A6006274CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAB2EB25200719A6006274CA /* Rubik's-TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rubik's-TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rubik_s_TimerTests.swift; sourceTree = "<group>"; };
 		EAB2EB2B200719A6006274CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EA5B48CA2106BD9100CC60FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAB2EB0E200719A5006274CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,11 +94,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA5B48CE2106BD9100CC60FD /* Rubik's-TimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EA5B48CF2106BD9100CC60FD /* Rubik_s_TimerUITests.swift */,
+				EA5B48D12106BD9100CC60FD /* Info.plist */,
+			);
+			path = "Rubik's-TimerUITests";
+			sourceTree = "<group>";
+		};
 		EAB2EB08200719A5006274CA = {
 			isa = PBXGroup;
 			children = (
 				EAB2EB13200719A5006274CA /* Rubik's-Timer */,
 				EAB2EB28200719A6006274CA /* Rubik's-TimerTests */,
+				EA5B48CE2106BD9100CC60FD /* Rubik's-TimerUITests */,
 				EAB2EB12200719A5006274CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +118,7 @@
 			children = (
 				EAB2EB11200719A5006274CA /* Rubik's-Timer.app */,
 				EAB2EB25200719A6006274CA /* Rubik's-TimerTests.xctest */,
+				EA5B48CD2106BD9100CC60FD /* Rubik's-TimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,7 +149,7 @@
 		EAB2EB28200719A6006274CA /* Rubik's-TimerTests */ = {
 			isa = PBXGroup;
 			children = (
-				EAB2EB29200719A6006274CA /* Rubik_s_TimerTests.swift */,
+				EA5B48C721056FF300CC60FD /* UserSettingsTests.swift */,
 				EAB2EB2B200719A6006274CA /* Info.plist */,
 			);
 			path = "Rubik's-TimerTests";
@@ -129,6 +158,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EA5B48CC2106BD9100CC60FD /* Rubik's-TimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA5B48D42106BD9100CC60FD /* Build configuration list for PBXNativeTarget "Rubik's-TimerUITests" */;
+			buildPhases = (
+				EA5B48C92106BD9100CC60FD /* Sources */,
+				EA5B48CA2106BD9100CC60FD /* Frameworks */,
+				EA5B48CB2106BD9100CC60FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA5B48D32106BD9100CC60FD /* PBXTargetDependency */,
+			);
+			name = "Rubik's-TimerUITests";
+			productName = "Rubik's-TimerUITests";
+			productReference = EA5B48CD2106BD9100CC60FD /* Rubik's-TimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		EAB2EB10200719A5006274CA /* Rubik's-Timer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAB2EB2E200719A6006274CA /* Build configuration list for PBXNativeTarget "Rubik's-Timer" */;
@@ -170,10 +217,14 @@
 		EAB2EB09200719A5006274CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Hamdan Javeed";
 				TargetAttributes = {
+					EA5B48CC2106BD9100CC60FD = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = EAB2EB10200719A5006274CA;
+					};
 					EAB2EB10200719A5006274CA = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -200,11 +251,19 @@
 			targets = (
 				EAB2EB10200719A5006274CA /* Rubik's-Timer */,
 				EAB2EB24200719A6006274CA /* Rubik's-TimerTests */,
+				EA5B48CC2106BD9100CC60FD /* Rubik's-TimerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EA5B48CB2106BD9100CC60FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAB2EB0F200719A5006274CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +285,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EA5B48C92106BD9100CC60FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA5B48D02106BD9100CC60FD /* Rubik_s_TimerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAB2EB0D200719A5006274CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,13 +315,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB2EB2A200719A6006274CA /* Rubik_s_TimerTests.swift in Sources */,
+				EA5B48C821056FF300CC60FD /* UserSettingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EA5B48D32106BD9100CC60FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAB2EB10200719A5006274CA /* Rubik's-Timer */;
+			targetProxy = EA5B48D22106BD9100CC60FD /* PBXContainerItemProxy */;
+		};
 		EAB2EB27200719A6006274CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EAB2EB10200719A5006274CA /* Rubik's-Timer */;
@@ -282,6 +354,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EA5B48D52106BD9100CC60FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-TimerUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-TimerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rubik's-Timer";
+			};
+			name = Debug;
+		};
+		EA5B48D62106BD9100CC60FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AK3NQ2H5W8;
+				INFOPLIST_FILE = "Rubik's-TimerUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hamdanjaveed.Rubik-s-TimerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Rubik's-Timer";
+			};
+			name = Release;
+		};
 		EAB2EB2C200719A6006274CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -475,6 +589,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EA5B48D42106BD9100CC60FD /* Build configuration list for PBXNativeTarget "Rubik's-TimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA5B48D52106BD9100CC60FD /* Debug */,
+				EA5B48D62106BD9100CC60FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EAB2EB0C200719A5006274CA /* Build configuration list for PBXProject "Rubik's-Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
