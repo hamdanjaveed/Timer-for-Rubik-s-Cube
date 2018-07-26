@@ -15,7 +15,7 @@ class UserSettings {
     static let hideInspectionTimerKey = "settings_hideInspectionTimer"
     static let hideSolveTimerKey = "settings_hideSolveTimer"
 
-    class func registerDefaultUserSettiings() {
+    class func registerDefaultUserSettings() {
         if let defaultUserSettings = PropertyListSerialization.dictionary(fromResource: "UserSettingDefaults", ofType: "plist", withFormat: .xml) {
             prefs.register(defaults: defaultUserSettings)
         }

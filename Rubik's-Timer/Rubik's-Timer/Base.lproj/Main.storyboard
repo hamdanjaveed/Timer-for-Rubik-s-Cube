@@ -70,11 +70,17 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="SolveTableCell"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="1kT-DG-78I" kind="show" identifier="Show Solve" id="uxk-wR-Lbc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="SolveTable"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="UpE-jH-oL4" id="xOb-zK-kYJ"/>
                             <outlet property="delegate" destination="UpE-jH-oL4" id="udj-wv-KAc"/>

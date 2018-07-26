@@ -23,6 +23,7 @@ class TimerViewController: UIViewController {
     var timerBegin: Date?
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Touch began")
         switch currentState {
         case .SOLVING:
             stopSolving()
@@ -32,6 +33,7 @@ class TimerViewController: UIViewController {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Touch ended")
         switch currentState {
         case .STOPPED:
             // Either start inspection or solving

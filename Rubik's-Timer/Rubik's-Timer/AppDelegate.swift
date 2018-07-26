@@ -15,7 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UserSettings.registerDefaultUserSettiings()
+        if ProcessInfo.processInfo.arguments.contains("--ui-testing") {
+            // Reset defaults
+            UserDefaults.standard.dictionaryRepresentation().keys.forEach { key in
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+
+            // Reset core data
+            do {
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: Solve.fetchRequest())
+                try persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: persistentContainer.viewContext)
+            } catch {
+                print("Failed to reset core data for UI testing: \(error)")
+            }
+        }
+
+        UserSettings.registerDefaultUserSettings()
         return true
     }
 

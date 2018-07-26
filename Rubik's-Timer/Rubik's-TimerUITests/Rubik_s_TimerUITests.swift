@@ -18,7 +18,9 @@ class Rubik_s_TimerUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = ["--ui-testing"]
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -28,9 +30,30 @@ class Rubik_s_TimerUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMultipleSolvesShowOnSolveTable() {
+        let app = XCUIApplication()
+        let timer = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+
+        // Record a solve
+        timer.tap()
+        timer.tap()
+        timer.tap()
+
+        // Check to see if 1 solve appears
+        app.tabBars.buttons["Solves"].tap()
+        let solveCount = app.tables["SolveTable"].cells.count
+        XCTAssertEqual(solveCount, 1, "Expected to see 1 solve, found \(solveCount)")
+
+        // Record another solve
+        app.tabBars.buttons["Timer"].tap()
+        timer.tap()
+        timer.tap()
+        timer.tap()
+        app.tabBars.buttons["Solves"].tap()
+
+        // Check to see if 2 solves appear
+        let updatedSolveCount = app.tables["SolveTable"].cells.count
+        XCTAssertEqual(updatedSolveCount, 2, "Expected to see 2 solves, found \(updatedSolveCount)")
     }
     
 }
