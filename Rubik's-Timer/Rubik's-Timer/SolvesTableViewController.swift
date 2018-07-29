@@ -20,7 +20,8 @@ class SolvesTableViewController: FetchedResultsTableViewController {
 
     var fetchedResultsController: NSFetchedResultsController<Solve>?
 
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateUI()
     }
 

@@ -1,22 +1,21 @@
 //
-//  UserSettingsTests.swift
-//  Rubik's-TimerTests
+//  Rubik_s_TimerUnitTests.swift
+//  Rubik's-TimerUnitTests
 //
-//  Created by Hamdan Javeed on 2018-07-22.
+//  Created by Hamdan Javeed on 2018-07-29.
 //  Copyright © 2018 Hamdan Javeed. All rights reserved.
 //
 
 import XCTest
 @testable import Rubik_s_Timer
 
-class UserSettingsTests: XCTestCase {
+class Rubik_s_TimerUnitTests: XCTestCase {
     let userDefaults = UserDefaults()
 
     override func setUp() {
         UserSettings.prefs = userDefaults
-        XCUIApplication().launch()
     }
-    
+
     override func tearDown() {
         userDefaults.dictionaryRepresentation().keys.forEach { key in
             userDefaults.removeObject(forKey: key)
